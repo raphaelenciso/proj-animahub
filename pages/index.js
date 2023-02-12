@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const url = "https://api.consumet.org/meta/anilist/trending";
 
   try {
