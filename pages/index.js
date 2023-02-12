@@ -4,22 +4,16 @@ import { useRouter } from "next/router";
 export const getServerSideProps = async () => {
   const url = "https://api.consumet.org/meta/anilist/trending";
 
-  try {
-    const { data } = await axios.get(url, {
-      params: {
-        page: 1,
-        perPage: 10,
-      },
-    });
+  const { data } = await axios.get(url, {
+    params: {
+      page: 1,
+      perPage: 10,
+    },
+  });
 
-    return {
-      props: { data: data.results },
-    };
-  } catch (err) {
-    return {
-      props: {},
-    };
-  }
+  return {
+    props: { data: data.results },
+  };
 };
 
 export default function Home({ data }) {
