@@ -59,6 +59,7 @@ const AnimeDetails = ({ animeInfo }) => {
               <div
                 className="w-[250px]"
                 onClick={() => router.push(`/watch/${episode.id}`)}
+                key={episode.id}
               >
                 <img src={episode.image} alt="" />
                 <p>

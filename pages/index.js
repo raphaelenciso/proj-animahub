@@ -30,11 +30,10 @@ export default function Home({ data }) {
     <div className="mx-auto flex flex-wrap gap-2 max-w-7xl w-[90%] justify-center">
       {data.map((item) => {
         return (
-          <div className="w-[200px] flex flex-col items-center">
+          <div className="w-[200px] flex flex-col items-center" key={item.id}>
             <img
               src={item.image}
               alt=""
-              key={item.id}
               className="w-[full] h-[300px] object-cover rounded-lg"
               onClick={() => router.push(`/details/${item.id}`)}
             />
