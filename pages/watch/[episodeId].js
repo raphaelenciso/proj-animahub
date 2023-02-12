@@ -16,7 +16,7 @@ export const getServerSideProps = async ({ query }) => {
 
 const watch = ({ streamingLink }) => {
   const { sources } = streamingLink;
-  console.log(sources);
+
   const playerRef = React.useRef(null);
 
   const videoJsOptions = {

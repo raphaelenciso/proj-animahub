@@ -28,8 +28,6 @@ const AnimeDetails = ({ animeInfo }) => {
     episodes,
   } = animeInfo;
 
-  console.log(episodes);
-
   return (
     <div>
       <div>
