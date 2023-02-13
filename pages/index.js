@@ -1,24 +1,18 @@
-import axios from "axios";
+import { META } from "@consumet/extensions";
 import { useRouter } from "next/router";
+import jsonConvert from "@/utils/jsonConvert";
 
-export const getServerSideProps = async () => {
-  const url = "https://api.consumet.org/meta/anilist/trending";
-
-  const { data } = await axios.get(url, {
-    params: {
-      page: 1,
-      perPage: 10,
-    },
-  });
+export const getStaticProps = async () => {
+  const AnilistConsumet = new META.Anilist();
+  const data = await AnilistConsumet.fetchTrendingAnime(1, 20);
 
   return {
-    props: { data: data.results },
+    props: { data: jsonConvert(data.results) },
   };
 };
 
 export default function Home({ data }) {
   const router = useRouter();
-  console.log(data);
 
   return (
     <div className="mx-auto flex flex-wrap gap-2 max-w-7xl w-[90%] justify-center">

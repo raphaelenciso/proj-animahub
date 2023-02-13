@@ -1,16 +1,17 @@
 import React from "react";
 import VideoJS from "@/components/Video";
-import axios from "axios";
+import jsonConvert from "@/utils/jsonConvert";
+import { META } from "@consumet/extensions";
 
 export const getServerSideProps = async ({ query }) => {
   const { episodeId } = query;
 
-  const url = `https://api.consumet.org/meta/anilist/watch/${episodeId}`;
+  const AnilistConsumet = new META.Anilist();
 
-  const { data } = await axios.get(url);
+  const data = await AnilistConsumet.fetchEpisodeSources(episodeId);
 
   return {
-    props: { streamingLink: data },
+    props: { streamingLink: jsonConvert(data) },
   };
 };
 

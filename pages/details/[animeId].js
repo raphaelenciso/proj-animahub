@@ -1,15 +1,16 @@
-import axios from "axios";
+import jsonConvert from "@/utils/jsonConvert";
+import { META } from "@consumet/extensions";
 import { useRouter } from "next/router";
 
 export const getServerSideProps = async ({ query }) => {
   const { animeId } = query;
 
-  const url = `https://api.consumet.org/meta/anilist/info/${animeId}`;
+  const AnilistConsumet = new META.Anilist();
 
-  const { data: animeInfo } = await axios.get(url);
+  const animeInfo = await AnilistConsumet.fetchAnimeInfo(animeId);
 
   return {
-    props: { animeInfo },
+    props: { animeInfo: jsonConvert(animeInfo) },
   };
 };
 
