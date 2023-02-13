@@ -1,7 +1,6 @@
 import jsonConvert from "@/utils/jsonConvert";
 import { META } from "@consumet/extensions";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 export const getServerSideProps = async ({ query }) => {
   const { animeId } = query;
@@ -16,9 +15,6 @@ export const getServerSideProps = async ({ query }) => {
 };
 
 const AnimeDetails = ({ animeInfo }) => {
-  const router = useRouter();
-
-  console.log(animeInfo);
   const {
     cover,
 

@@ -1,7 +1,6 @@
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Grid = ({ data, option, setOption }) => {
-  const router = useRouter();
   return (
     <div className="mx-auto max-w-7xl w-[100%]">
       <div className="px-6 pt-8 mb-4 flex flex-col lg:flex-row justify-between">
@@ -36,21 +35,21 @@ const Grid = ({ data, option, setOption }) => {
         {data &&
           data.map((item) => {
             return (
-              <div
-                className="w-[160px] md:w-[200px] mx-2 md:mx-6 my-2"
-                key={item.id}
-              >
-                {console.log(item.title)}
-                <img
-                  src={item.image}
-                  alt=""
-                  className="w-[full] h-[200px] sm:[230px] md:h-[300px] object-cover rounded-lg hover:scale-105 transition-all cursor-pointer"
-                  onClick={() => router.push(`/details/${item.id}`)}
-                />
-                <h1 className="mx-auto text-center text-gray-300 text-md hover:underline cursor-pointer">
-                  {item.title.userPreferred.slice(0, 35)}
-                </h1>
-              </div>
+              <Link href={`/details/${item.id}`}>
+                <div
+                  className="w-[160px] md:w-[200px] mx-2 md:mx-6 my-2 group  hover:scale-105 transition-all"
+                  key={item.id}
+                >
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="w-[full] h-[200px] sm:[230px] md:h-[300px] object-cover rounded-lg  cursor-pointer"
+                  />
+                  <h1 className="mx-auto text-center text-gray-300 text-md group-hover:underline cursor-pointer">
+                    {item.title.userPreferred.slice(0, 35)}
+                  </h1>
+                </div>
+              </Link>
             );
           })}
       </div>
