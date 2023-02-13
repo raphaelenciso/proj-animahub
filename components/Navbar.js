@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="bg-bg-neutral sticky w-full top-0">
+    <nav className="bg-bg-neutral sticky w-full top-0 z-10">
       <div className="w-[90%]  max-w-7xl flex justify-between items-center mx-auto py-2">
         <Link href="/">
           <div className="text-transparent bg-clip-text bg-gradient-to-r font-bold text-2xl md:text-3xl tracking-wide from-primary-main via-pink-400 to-secondary-main">
