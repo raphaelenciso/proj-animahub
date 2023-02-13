@@ -26,7 +26,7 @@ const SearchBar = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="search"
-          className="peer cursor-pointer relative z-10 h-10 w-12 rounded-3xl  border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-primary-main focus:pl-16 focus:pr-4 text-gray-100 | md:w-full md:pl-16 md:pr-4"
+          className="peer cursor-pointer relative z-10 h-10 w-12 rounded-3xl  border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-primary-main focus:pl-16 focus:pr-4 text-gray-100 | md:w-full md:pl-16 md:pr-4 motion | transition-width duration-300"
           placeholder="Search"
         />
         <svg

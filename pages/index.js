@@ -1,6 +1,7 @@
 import { META } from "@consumet/extensions";
-import { useRouter } from "next/router";
 import jsonConvert from "@/utils/jsonConvert";
+import Grid from "@/components/Grid";
+import { useState } from "react";
 
 export const getStaticProps = async () => {
   const AnilistConsumet = new META.Anilist();
@@ -12,24 +13,11 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ data }) {
-  const router = useRouter();
+  const [option, setOption] = useState("Trending");
 
   return (
-    <div className="mx-auto flex flex-wrap gap-2 max-w-7xl w-[90%] justify-center">
-      {data &&
-        data.map((item) => {
-          return (
-            <div className="w-[200px] flex flex-col items-center" key={item.id}>
-              <img
-                src={item.image}
-                alt=""
-                className="w-[full] h-[300px] object-cover rounded-lg"
-                onClick={() => router.push(`/details/${item.id}`)}
-              />
-              <h1 className="mx-auto text-center">{item.title.english}</h1>
-            </div>
-          );
-        })}
+    <div className="bg-bg-main">
+      <Grid data={data} option={option} setOption={setOption} />
     </div>
   );
 }

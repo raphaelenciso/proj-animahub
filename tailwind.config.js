@@ -29,6 +29,9 @@ module.exports = {
         "bg-neutral": "#242526",
         "bg-neutral-lighter": "#3a3b3c",
       },
+      transitionProperty: {
+        width: "width",
+      },
     },
   },
   plugins: [],

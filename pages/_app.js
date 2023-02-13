@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>AnimaHub</title>
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
       </Head>
       <Navbar />
       <Component {...pageProps} />
