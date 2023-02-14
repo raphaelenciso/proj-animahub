@@ -16,7 +16,7 @@ export const getServerSideProps = async (context) => {
 
 const Search = ({ data, query }) => {
   return (
-    <div className="bg-bg-main">
+    <div className="bg-bg-main min-h-[calc(100vh-56px)]">
       <div className="mx-auto flex flex-wrap justify-center pt-4 max-w-7xl w-[90%]">
         <h1 className="text-white text-3xl font-semibold mb-4">
           Results for{" "}
