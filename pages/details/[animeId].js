@@ -2,6 +2,7 @@ import jsonConvert from "@/utils/jsonConvert";
 import { META } from "@consumet/extensions";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export const getServerSideProps = async ({ query }) => {
   const { animeId } = query;
@@ -11,11 +12,11 @@ export const getServerSideProps = async ({ query }) => {
   const animeInfo = await AnilistConsumet.fetchAnimeInfo(animeId);
 
   return {
-    props: { animeInfo: jsonConvert(animeInfo) },
+    props: { animeInfo: jsonConvert(animeInfo), animeId: animeId },
   };
 };
 
-const AnimeDetails = ({ animeInfo }) => {
+const AnimeDetails = ({ animeInfo, animeId }) => {
   const {
     cover,
     title,
@@ -46,7 +47,7 @@ const AnimeDetails = ({ animeInfo }) => {
               className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main
           "
             >
-              {title.english}
+              {title.english ? title.english : title.romaji}
             </p>
             <p className=" text-xl md:text-2xl  ">{season}</p>
             <p className="text-text-secondary">
@@ -74,7 +75,13 @@ const AnimeDetails = ({ animeInfo }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {episodes.map((episode) => {
             return (
-              <Link href={`/watch/${episode.id}`}>
+              <Link
+                href={{
+                  pathname: "/watch/[animeId]/[episodeId]",
+                }}
+                as={`/watch/${animeId}/${episode.id}`}
+                key={episode.id}
+              >
                 <div key={episode.id} className="lg:mb-4">
                   <Image
                     src={episode.image}
