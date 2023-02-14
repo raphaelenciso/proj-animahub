@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const Related = ({ relateds }) => {
@@ -16,15 +15,13 @@ const Related = ({ relateds }) => {
             key={item.id}
           >
             <div key={item.id} className="lg:mb-4 flex">
-              <Image
+              <img
                 src={item.image}
                 alt={
                   item.title.english ? item.title.english : item.title.romaji
                 }
-                className="object-cover object-center"
-                width={180}
-                height={20}
-                unoptimized
+                className="w-44 object-cover object-center"
+                loading="lazy"
               />
 
               <p className="text-white font-semibold text-lg px-1 pt-1">

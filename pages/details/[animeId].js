@@ -1,8 +1,7 @@
+import DetailsEpisode from "@/components/DetailsEpisode";
 import jsonConvert from "@/utils/jsonConvert";
 import { META } from "@consumet/extensions";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const getServerSideProps = async ({ query }) => {
   const { animeId } = query;
@@ -17,6 +16,9 @@ export const getServerSideProps = async ({ query }) => {
 };
 
 const AnimeDetails = ({ animeInfo, animeId }) => {
+  const [from, setFrom] = useState(1);
+  const [to, setTo] = useState(50);
+
   const {
     cover,
     title,
@@ -29,16 +31,28 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
     episodes,
   } = animeInfo;
 
+  const generateDynamicEpisodes = (episodes) => {
+    const page = Math.ceil(episodes / 50);
+
+    const arr = [];
+
+    for (let i = 0; i < page; i++) {
+      const from = i * 50 + 1;
+      const to = i * 50 + 50;
+      arr.push("Episode " + from.toString() + "-" + to.toString());
+    }
+
+    return arr;
+  };
+
   return (
     <div className="bg-bg-main">
       <div className="md:relative">
-        <Image
+        <img
           src={cover}
           alt={title}
           className="h-[200px] md:h-[400px] w-full object-cover object-center "
-          height={400}
-          width={100}
-          unoptimized
+          loading="lazy"
         />
 
         <div className="lg:absolute lg:top-0 ||||| lg:bg-gradient-to-r lg:from-[#000000ff] lg:via-[#000000cf] lg:to-[#0000005f] w-full h-full my-4 lg:my-0">
@@ -71,34 +85,37 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
       </div>
       <hr className="w-[90%] md:w-[100%] mx-auto border-gray-400 md:hidden" />
       <div className="w-[90%] max-w-7xl mx-auto">
-        <h1 className="text-white text-2xl font-semibold my-4"> Episodes</h1>
+        <h1 className="text-white text-2xl font-semibold my-4 inline-block mr-8">
+          {" "}
+          Episodes
+        </h1>
+
+        {episodes.length > 50 && (
+          <select
+            className="inline-block bg-bg-neutral border border-gray-100 text-white rounded-md"
+            name=""
+            id=""
+            onChange={(e) => {
+              setFrom(parseInt(e.target.value.split("-")[0]));
+              setTo(parseInt(e.target.value.split("-")[1]));
+            }}
+          >
+            {generateDynamicEpisodes(episodes.length).map((episodeRange) => (
+              <option value={episodeRange} key={episodeRange}>
+                {episodeRange}
+              </option>
+            ))}
+          </select>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {episodes.map((episode) => {
+          {episodes.slice(from - 1, to).map((episode) => {
             return (
-              <Link
-                href={{
-                  pathname: "/watch/[animeId]/[episodeId]",
-                }}
-                as={`/watch/${animeId}/${episode.id}`}
+              <DetailsEpisode
+                episode={episode}
+                animeId={animeId}
                 key={episode.id}
-              >
-                <div key={episode.id} className="lg:mb-4">
-                  <Image
-                    src={episode.image}
-                    alt={episode.title}
-                    className="w-full h-52 object-cover object-center"
-                    width={100}
-                    height={208}
-                    unoptimized
-                  />
-                  <p className="text-white font-semibold text-lg px-1 pt-1">
-                    {episode.number}. {episode.title}
-                  </p>
-                  <p className="text-text-secondary px-1 text-sm cursor-text">
-                    {episode.description}
-                  </p>
-                </div>
-              </Link>
+              />
             );
           })}
         </div>

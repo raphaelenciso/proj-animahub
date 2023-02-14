@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const Grid = ({ data, option, setOption }) => {
   return (
-    <div className="mx-auto max-w-7xl w-[100%]">
+    <div className="mx-auto max-w-7xl w-[90%]">
       <div className="px-6 pt-8 mb-4 flex flex-col lg:flex-row justify-between">
         <div>
           <h1 className="text-white text-3xl font-bold">{option} Anime</h1>
@@ -38,12 +37,12 @@ const Grid = ({ data, option, setOption }) => {
             return (
               <Link href={`/details/${item.id}`} key={item.id}>
                 <div className="w-[160px] md:w-[200px] mx-2 md:mx-6 my-2 group  hover:scale-105 transition-all">
-                  <Image
+                  <img
                     src={item.image}
                     alt={item.id}
                     className="w-[full] h-[250px]  md:h-[300px] object-cover rounded-lg  cursor-pointer"
                     width={200}
-                    height={200}
+                    loading="lazy"
                   />
                   <h1 className="mx-auto text-center text-gray-300 text-md group-hover:underline cursor-pointer">
                     {item.title.userPreferred.slice(0, 35)}
