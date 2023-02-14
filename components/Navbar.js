@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   return (
@@ -16,9 +17,11 @@ const Navbar = () => {
 };
 
 const SearchBar = () => {
+  const router = useRouter();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    router.push(`/search/${e.target[0].value}`);
   };
 
   return (
