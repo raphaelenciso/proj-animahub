@@ -27,7 +27,8 @@ const Episodes = ({ episodes, animeId }) => {
                   {episode.number}. {episode.title}
                 </p>
                 <p className="text-text-secondary px-1 text-sm cursor-text">
-                  {episode.description.slice(0, 70) + "..."}
+                  {episode.description &&
+                    episode.description.slice(0, 70) + "..."}
                 </p>
               </div>
             </div>

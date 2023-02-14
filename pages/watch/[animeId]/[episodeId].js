@@ -25,6 +25,8 @@ export const getServerSideProps = async ({ query }) => {
 
 const watch = ({ streamingLink, animeInfo, animeId }) => {
   const { sources } = streamingLink;
+
+  console.log(streamingLink);
   const [option, setOption] = useState("Episodes");
 
   const playerRef = React.useRef(null);
@@ -36,7 +38,7 @@ const watch = ({ streamingLink, animeInfo, animeId }) => {
     fluid: true,
     sources: [
       {
-        src: sources[5].url,
+        src: sources[0]?.url,
         type: "application/x-mpegURL",
       },
     ],
