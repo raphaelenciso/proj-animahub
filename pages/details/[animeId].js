@@ -1,5 +1,6 @@
 import jsonConvert from "@/utils/jsonConvert";
 import { META } from "@consumet/extensions";
+import Image from "next/image";
 import Link from "next/link";
 
 export const getServerSideProps = async ({ query }) => {
@@ -17,7 +18,6 @@ export const getServerSideProps = async ({ query }) => {
 const AnimeDetails = ({ animeInfo }) => {
   const {
     cover,
-
     title,
     season,
     releaseDate,
@@ -31,10 +31,13 @@ const AnimeDetails = ({ animeInfo }) => {
   return (
     <div className="bg-bg-main">
       <div className="md:relative">
-        <img
+        <Image
           src={cover}
-          alt="cover"
-          className="h-[150px] md:h-[400px] w-full object-cover object-center "
+          alt={title}
+          className="h-[200px] md:h-[400px] w-full object-cover object-center "
+          height={400}
+          width={100}
+          unoptimized
         />
 
         <div className="lg:absolute lg:top-0 ||||| lg:bg-gradient-to-r lg:from-[#000000ff] lg:via-[#000000cf] lg:to-[#0000005f] w-full h-full my-4 lg:my-0">
@@ -73,10 +76,12 @@ const AnimeDetails = ({ animeInfo }) => {
             return (
               <Link href={`/watch/${episode.id}`}>
                 <div key={episode.id} className="lg:mb-4">
-                  <img
+                  <Image
                     src={episode.image}
-                    alt=""
+                    alt={episode.title}
                     className="w-full h-52 object-cover object-center"
+                    width={100}
+                    height={208}
                   />
                   <p className="text-white font-semibold text-lg px-1 pt-1">
                     {episode.number}. {episode.title}

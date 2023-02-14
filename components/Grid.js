@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Grid = ({ data, option, setOption }) => {
@@ -40,10 +41,12 @@ const Grid = ({ data, option, setOption }) => {
                   className="w-[160px] md:w-[200px] mx-2 md:mx-6 my-2 group  hover:scale-105 transition-all"
                   key={item.id}
                 >
-                  <img
+                  <Image
                     src={item.image}
-                    alt=""
-                    className="w-[full] h-[200px] sm:[230px] md:h-[300px] object-cover rounded-lg  cursor-pointer"
+                    alt={item.id}
+                    className="w-[full] h-[250px]  md:h-[300px] object-cover rounded-lg  cursor-pointer"
+                    width={200}
+                    height={200}
                   />
                   <h1 className="mx-auto text-center text-gray-300 text-md group-hover:underline cursor-pointer">
                     {item.title.userPreferred.slice(0, 35)}
