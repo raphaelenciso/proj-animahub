@@ -32,7 +32,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
 
   const playerRef = React.useRef(null);
 
-  const { title, description } = animeInfo;
+  const { title } = animeInfo;
   const videoJsOptions = {
     autoplay: false,
     controls: true,

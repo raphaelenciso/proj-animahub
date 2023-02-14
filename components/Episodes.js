@@ -13,7 +13,7 @@ const Episodes = ({ episodes, animeId }) => {
     for (let i = 0; i < page; i++) {
       const from = i * 50 + 1;
       const to = i * 50 + 50;
-      arr.push("Episode " + from.toString() + "-" + to.toString());
+      arr.push(from.toString() + "-" + to.toString());
     }
 
     return arr;
@@ -33,7 +33,7 @@ const Episodes = ({ episodes, animeId }) => {
         >
           {generateDynamicEpisodes(episodes.length).map((episodeRange) => (
             <option value={episodeRange} key={episodeRange}>
-              {episodeRange}
+              Episode {episodeRange}
             </option>
           ))}
         </select>
