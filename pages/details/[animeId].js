@@ -82,6 +82,7 @@ const AnimeDetails = ({ animeInfo }) => {
                     className="w-full h-52 object-cover object-center"
                     width={100}
                     height={208}
+                    unoptimized
                   />
                   <p className="text-white font-semibold text-lg px-1 pt-1">
                     {episode.number}. {episode.title}

@@ -36,11 +36,8 @@ const Grid = ({ data, option, setOption }) => {
         {data &&
           data.map((item) => {
             return (
-              <Link href={`/details/${item.id}`}>
-                <div
-                  className="w-[160px] md:w-[200px] mx-2 md:mx-6 my-2 group  hover:scale-105 transition-all"
-                  key={item.id}
-                >
+              <Link href={`/details/${item.id}`} key={item.id}>
+                <div className="w-[160px] md:w-[200px] mx-2 md:mx-6 my-2 group  hover:scale-105 transition-all">
                   <Image
                     src={item.image}
                     alt={item.id}
