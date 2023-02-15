@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from "react";
-import VideoJS from "@/components/Video";
 import jsonConvert from "@/utils/jsonConvert";
 import { META } from "@consumet/extensions";
 import Episodes from "@/components/Episodes";
 import Related from "@/components/Related";
 import Like from "@/components/Like";
+
+import VideoJS from "@/components/Video";
 
 export const getServerSideProps = async ({ query }) => {
   const { episodeId, animeId } = query;
@@ -36,8 +37,8 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
   const videoJsOptions = {
     autoplay: false,
     controls: true,
-    responsive: true,
     fluid: true,
+    playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
     sources: [
       {
         src: sources[qualityOption]?.url,
