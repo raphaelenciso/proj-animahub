@@ -11,6 +11,7 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: { data: jsonConvert(searchResults.results), query },
+    revalidate: 360,
   };
 };
 
