@@ -53,11 +53,7 @@ export default function Home({ data }) {
 
         <hr className="w-[90%] md:w-[100%] mx-auto border-gray-400" />
 
-        <Grid
-          data={option === "Trending" ? data.trending : data.popular}
-          option={option}
-          setOption={setOption}
-        />
+        <Grid data={option === "Trending" ? data.trending : data.popular} />
       </div>
     </div>
   );
