@@ -1,6 +1,8 @@
 import React from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
+import seekButtons from "videojs-seek-buttons";
+import "videojs-seek-buttons/dist/videojs-seek-buttons.css";
 
 export const VideoJS = (props) => {
   const videoRef = React.useRef(null);
@@ -16,18 +18,27 @@ export const VideoJS = (props) => {
       videoElement.classList.add("vjs-big-play-centered");
       videoRef.current.appendChild(videoElement);
 
-      const player = (playerRef.current = videojs(videoElement, options, () => {
+      let player = (playerRef.current = videojs(videoElement, options, () => {
         videojs.log("player is ready");
         onReady && onReady(player);
       }));
 
+      // player.seekButtons({
+      //   forward: 8,
+      //   back: 8,
+      // });
+
       // You could update an existing player in the `else` block here
       // on prop change, for example:
     } else {
-      const player = playerRef.current;
+      let player = playerRef.current;
 
       player.autoplay(options.autoplay);
       player.src(options.sources);
+      // player.seekButtons({
+      //   forward: 8,
+      //   back: 8,
+      // });
     }
   }, [options, videoRef]);
 

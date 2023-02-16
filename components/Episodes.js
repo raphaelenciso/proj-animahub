@@ -51,11 +51,11 @@ const Episodes = ({ episodes, animeId }) => {
               <img
                 src={episode.image}
                 alt={episode.title}
-                className="w-56 object-cover object-center"
+                className="w-44 md:w-48 object-cover object-center"
                 loading="lazy"
               />
               <div className="flex flex-col  justify-center">
-                <p className="text-white font-semibold text-lg px-1 pt-1">
+                <p className="text-white font-semibold text-sm md:text-base  lg:text-lg px-1 pt-1">
                   {episode.number}. {episode.title}
                 </p>
                 <p className="text-text-secondary px-1 text-sm cursor-text">

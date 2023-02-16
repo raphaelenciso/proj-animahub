@@ -45,6 +45,12 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
         type: "application/x-mpegURL",
       },
     ],
+    plugins: {
+      seekButtons: {
+        forward: 8,
+        back: 8,
+      },
+    },
   };
 
   const handlePlayerReady = (player) => {
@@ -62,7 +68,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
 
   return (
     <div className="bg-bg-main min-h-screen">
-      <div className=" w-[90%] max-w-7xl mx-auto flex flex-col xl:flex-row gap-8 pt-8">
+      <div className="w-full md:w-[90%] max-w-7xl mx-auto flex flex-col xl:flex-row gap-8  md:pt-8">
         <div className="flex-[2] w-full ">
           {useMemo(() => {
             return (
@@ -70,7 +76,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
             );
           }, [qualityOption, episodeId])}
           <div>
-            <div>
+            <div className="px-4 md:px-0">
               <h1 className="text-white font-semibold text-xl">Quality:</h1>
               {sources.map((source, index) => (
                 <button
@@ -86,7 +92,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
                 </button>
               ))}
             </div>
-            <div>
+            <div className="px-4 md:px-0">
               <h1 className="text-text-secondary text-lg mt-2">
                 Episode {episodeId.split("episode-")[1]}
               </h1>
@@ -102,38 +108,38 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
             </div>
           </div>
         </div>
-        <div className="flex-1 ">
-          <div className="flex gap-2 text-white h-10">
-            <button
-              className={`${
-                option === "Episodes"
-                  ? "bg-white text-bg-main"
-                  : "bg-bg-neutral-lighter"
-              } px-4 rounded-2xl `}
+        <div className="flex-1  px-4 md:px-0">
+          <div className="flex gap-2 text-white h-10 border-t border-gray-400 ">
+            <div
               onClick={() => setOption("Episodes")}
+              className={`bg-gradient-to-r from-primary-main via-pink-400 to-secondary-main  flex justify-center items-center  ${
+                option === "Episodes" ? "pt-1" : "mt-1"
+              } `}
             >
-              Episodes
-            </button>
-            <button
-              className={`${
-                option === "Related"
-                  ? "bg-white text-bg-main"
-                  : "bg-bg-neutral-lighter"
-              } px-4 rounded-2xl `}
+              <div className="font-semibold px-4 text-sm md:text-base bg-bg-main w-full h-full cursor-pointer hover:bg-gray-600">
+                EPISODES
+              </div>
+            </div>
+            <div
               onClick={() => setOption("Related")}
+              className={`bg-gradient-to-r from-primary-main via-pink-400 to-secondary-main  flex justify-center items-center  ${
+                option === "Related" ? "pt-1" : "mt-1"
+              } `}
             >
-              Related
-            </button>
-            <button
-              className={`${
-                option === "Like"
-                  ? "bg-white text-bg-main"
-                  : "bg-bg-neutral-lighter"
-              } px-4 rounded-2xl `}
-              onClick={() => setOption("Like")}
+              <div className="font-semibold px-4 text-sm md:text-base bg-bg-main w-full h-full cursor-pointer hover:bg-gray-600">
+                RELATED
+              </div>
+            </div>
+            <div
+              onClick={() => setOption("Likes")}
+              className={`bg-gradient-to-r from-primary-main via-pink-400 to-secondary-main  flex justify-center items-center ${
+                option === "Likes" ? "pt-1" : "mt-1"
+              } `}
             >
-              You may also like
-            </button>
+              <div className="font-semibold px-4 text-sm md:text-base bg-bg-main w-full h-full cursor-pointer hover:bg-gray-600">
+                MORE LIKE THIS
+              </div>
+            </div>
           </div>
           {option === "Episodes" && (
             <Episodes episodes={animeInfo.episodes} animeId={animeId} />

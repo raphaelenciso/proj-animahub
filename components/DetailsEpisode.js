@@ -20,7 +20,9 @@ const DetailsEpisode = ({ animeId, episode }) => {
           {episode.number}. {episode.title}
         </p>
         <p className="text-text-secondary px-1 text-sm cursor-text">
-          {episode.description}
+          {episode.description && episode.description.length > 150
+            ? episode.description.slice(0, 150) + "..."
+            : episode.description}
         </p>
       </div>
     </Link>
