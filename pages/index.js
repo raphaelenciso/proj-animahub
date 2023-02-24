@@ -15,7 +15,7 @@ export const getStaticProps = async () => {
         popular: jsonConvert(popular.results),
       },
     },
-    revalidate: 60 * 60 * 24,
+    revalidate: 60,
   };
 };
 
