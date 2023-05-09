@@ -4,14 +4,8 @@ import Link from "next/link";
 
 const DetailsEpisode = ({ animeId, episode }) => {
   return (
-    <Link
-      href={{
-        pathname: "/watch/[animeId]/[episodeId]",
-      }}
-      as={`/watch/${animeId}/${episode.id}`}
-      key={episode.id}
-    >
-      <div key={episode.id} className="lg:mb-4">
+    <Link href={`/watch/${animeId}/${episode.id}`}>
+      <div className="lg:mb-4">
         <img
           src={episode.image}
           alt={episode.title}

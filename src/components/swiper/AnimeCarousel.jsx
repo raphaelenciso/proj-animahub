@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import AnimeCard from "../AnimeCard";
 
-const AnimeCarousel = ({ animelist, title, className }) => {
+const AnimeCarousel = ({ animelist, title, className, tag }) => {
   const bp = {
     380: {
       slidesPerView: 3,
@@ -40,7 +40,7 @@ const AnimeCarousel = ({ animelist, title, className }) => {
       >
         {animelist.map((anime) => (
           <SwiperSlide key={anime.id}>
-            <AnimeCard anime={anime} />
+            <AnimeCard anime={anime} tag={tag} />
           </SwiperSlide>
         ))}
       </Swiper>

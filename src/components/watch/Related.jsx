@@ -7,13 +7,7 @@ const Related = ({ relateds }) => {
     <div className="mt-4 flex flex-col gap-2">
       {relateds.map((item) => {
         return (
-          <Link
-            href={{
-              pathname: "/details/[animeId]",
-            }}
-            as={`/details/${item.id}`}
-            key={item.id}
-          >
+          <Link href={`/details/${item.id}`} key={item.id}>
             <div key={item.id} className="lg:mb-4 flex">
               <img
                 src={item.image}

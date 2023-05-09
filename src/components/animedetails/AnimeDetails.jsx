@@ -45,19 +45,19 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
 
         <div className="lg:absolute lg:top-0 ||||| lg:bg-gradient-to-r lg:from-[#000000ff] lg:via-[#000000cf] lg:to-[#0000005f] w-full h-full my-4 lg:my-0">
           <div className=" text-white h-full flex flex-col justify-center gap-2 w-[90%] max-w-7xl mx-auto  ">
-            <p
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main
-      "
-            >
+            <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main">
               {title.english ? title.english : title.romaji}
             </p>
             <p className=" text-xl md:text-2xl  ">{season}</p>
             <p className="text-text-secondary">
               {releaseDate} | {duration} | {genres.map((genre) => genre + ", ")}
             </p>
-            <p className="text-sm lg:text-base w-full lg:w-[50%]">
-              {description && description.slice(0, 325)}...
-            </p>
+            <p
+              className="text-sm lg:text-base w-full lg:w-[50%]"
+              dangerouslySetInnerHTML={{
+                __html: description.slice(0, 325) + "...",
+              }}
+            ></p>
             <p className="text-text-secondary">
               Characters:{" "}
               {characters.slice(0, 3).map((character, index) => {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const AnimeCard = ({ anime }) => {
+const AnimeCard = ({ anime, tag }) => {
   return (
     <Link href={`/details/${anime.id}`}>
       <div className="bg-bg-main transition duration-300 hover:scale-[0.98]  ">
@@ -13,6 +13,12 @@ const AnimeCard = ({ anime }) => {
           width={200}
           loading="lazy"
         />
+
+        {tag && (
+          <span className="bg-red-500 text-white absolute top-0 right-0 py-[1px] px-[2px] text-sm font-semibold">
+            EP {anime.episodeNumber}
+          </span>
+        )}
         <h1 className="mx-auto text-center text-gray-300 text-sm lg:text-base group-hover:underline cursor-pointer">
           {anime.title.userPreferred.slice(0, 35)}
         </h1>

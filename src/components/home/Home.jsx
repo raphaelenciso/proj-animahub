@@ -15,6 +15,7 @@ export default function Home({ trending, popular, recent }) {
           animelist={recent}
           title="Recently Released Anime"
           className="pt-4 pb-6"
+          tag={true}
         />
         <AnimeCarousel
           animelist={trending}

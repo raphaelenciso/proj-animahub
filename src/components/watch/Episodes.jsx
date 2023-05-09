@@ -42,13 +42,7 @@ const Episodes = ({ episodes, animeId }) => {
       )}
       {episodes.slice(from - 1, to).map((episode) => {
         return (
-          <Link
-            href={{
-              pathname: "/watch/[animeId]/[episodeId]",
-            }}
-            as={`/watch/${animeId}/${episode.id}`}
-            key={episode.id}
-          >
+          <Link href={`/watch/${animeId}/${episode.id}`} key={episode.id}>
             <div key={episode.id} className="lg:mb-4 flex">
               <img
                 src={episode.image}
