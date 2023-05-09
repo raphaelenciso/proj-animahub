@@ -23,7 +23,7 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // router.push(`/search/${e.target[0].value}`);
+    router.push(`/search/${e.target[0].value}`);
   };
 
   return (

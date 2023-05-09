@@ -3,8 +3,6 @@
 import Link from "next/link";
 
 const Related = ({ relateds }) => {
-  console.log(relateds);
-
   return (
     <div className="mt-4 flex flex-col gap-2">
       {relateds.map((item) => {

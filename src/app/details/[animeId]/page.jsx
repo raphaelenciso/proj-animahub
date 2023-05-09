@@ -4,8 +4,6 @@ const getAnimeInfo = async ({ animeId }) => {
   const res = await fetch(
     `https://api.consumet.org/meta/anilist/info/${animeId}`
   );
-
-  console.log("fetch");
   return res.json();
 };
 

@@ -7,8 +7,6 @@ export const getTrending = async () => {
       next: { revalidate: 60 },
     }
   );
-
-  console.log("Fetched");
   return res.json();
 };
 
@@ -19,8 +17,6 @@ export const getPopular = async () => {
       next: { revalidate: 60 },
     }
   );
-
-  console.log("Fetched");
   return res.json();
 };
 

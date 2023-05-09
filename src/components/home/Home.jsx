@@ -3,11 +3,11 @@
 import Grid from "@/components/Grid";
 import { useState } from "react";
 
-export default function Home({ trending, popular }) {
+export default function Home({ trending, popular, children }) {
   const [option, setOption] = useState("Trending");
 
   return (
-    <div className="bg-bg-main">
+    <div className="bg-bg-main min-h-screen">
       <div className="mx-auto max-w-7xl w-[90%]">
         <div className="px-6 pt-8 mb-4 flex flex-col lg:flex-row justify-between">
           <div>
@@ -39,7 +39,6 @@ export default function Home({ trending, popular }) {
         <hr className="w-[90%] md:w-[100%] mx-auto border-gray-400" />
 
         <Grid data={option === "Trending" ? trending : popular} />
-        {/* <Grid data={trending} /> */}
       </div>
     </div>
   );

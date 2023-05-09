@@ -34,7 +34,7 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
   };
 
   return (
-    <div className="bg-bg-main">
+    <div className="bg-bg-main min-h-screen">
       <div className="md:relative">
         <img
           src={cover}
