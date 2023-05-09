@@ -2,7 +2,7 @@ import Skeleton from "@/components/Skeleton";
 
 const loading = () => {
   return (
-    <div className="bg-bg-main min-h-screen">
+    <div className="bg-bg-main">
       <div className="w-full md:w-[90%] max-w-7xl mx-auto flex flex-col xl:flex-row gap-8  md:pt-8">
         <div className="flex-[2] w-full ">
           {/* videojs */}
@@ -13,8 +13,8 @@ const loading = () => {
                 <Skeleton className="w-24 h-6" />
               </h1>
               <div className="flex flex-row gap-4">
-                {[1, 2, 3, 4, 5].map((source, index) => (
-                  <Skeleton key={index} className="w-20 h-6 " />
+                {[1, 2, 3, 4, 5].map((source) => (
+                  <Skeleton key={source} className="w-20 h-6 " />
                 ))}
               </div>
             </div>
@@ -42,7 +42,7 @@ const loading = () => {
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
-            {[1, 2, 3, 4, 5].map((episode) => {
+            {[1, 2, 3, 4, 5, 6].map((episode) => {
               return (
                 <div key={episode.id} className="lg:mb-4 flex">
                   <Skeleton className="w-48 h-28 " />

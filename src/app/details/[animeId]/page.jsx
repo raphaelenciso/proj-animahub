@@ -10,10 +10,6 @@ const getAnimeInfo = async ({ animeId }) => {
 const page = async ({ params }) => {
   const animeInfo = await getAnimeInfo(params);
 
-  return (
-    <>
-      <AnimeDetails animeInfo={animeInfo} animeId={params.animeId} />
-    </>
-  );
+  return <AnimeDetails animeInfo={animeInfo} animeId={params.animeId} />;
 };
 export default page;

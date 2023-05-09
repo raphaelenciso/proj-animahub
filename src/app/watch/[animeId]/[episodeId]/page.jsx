@@ -21,14 +21,12 @@ const page = async ({ params }) => {
   const animeInfo = await getAnimeInfo(params.animeId);
 
   return (
-    <>
-      <Watch
-        streamingLink={streamingLink}
-        animeInfo={animeInfo}
-        animeId={params.animeId}
-        episodeId={params.episodeId}
-      />
-    </>
+    <Watch
+      streamingLink={streamingLink}
+      animeInfo={animeInfo}
+      animeId={params.animeId}
+      episodeId={params.episodeId}
+    />
   );
 };
 export default page;

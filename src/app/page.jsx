@@ -36,13 +36,11 @@ const page = async () => {
   const recent = await recentAnime();
 
   return (
-    <div>
-      <Home
-        trending={trending.results}
-        popular={popular.results}
-        recent={recent.results}
-      />
-    </div>
+    <Home
+      trending={trending.results}
+      popular={popular.results}
+      recent={recent.results}
+    />
   );
 };
 export default page;
