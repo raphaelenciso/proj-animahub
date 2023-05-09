@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Grid = ({ data }) => {
   return (
-    <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5  gap-1 md:gap-2 lg:gap-4 mt-4 w-[90%] md:w-full mx-auto lg:px-2">
+    <div className="grid grid-cols-3  md:grid-cols-4 xl:grid-cols-5  gap-1 md:gap-2 lg:gap-4 mt-4 w-[90%] md:w-full mx-auto lg:px-2">
       {data &&
         data.map((item) => {
           return (
