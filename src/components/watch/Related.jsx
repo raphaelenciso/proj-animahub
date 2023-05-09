@@ -1,10 +1,13 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
 
-const Like = ({ likes }) => {
+const Related = ({ relateds }) => {
+  console.log(relateds);
+
   return (
     <div className="mt-4 flex flex-col gap-2">
-      {likes.map((item) => {
+      {relateds.map((item) => {
         return (
           <Link
             href={{
@@ -33,4 +36,4 @@ const Like = ({ likes }) => {
     </div>
   );
 };
-export default Like;
+export default Related;

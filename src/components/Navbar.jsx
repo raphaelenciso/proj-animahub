@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   return (
@@ -21,7 +23,7 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search/${e.target[0].value}`);
+    // router.push(`/search/${e.target[0].value}`);
   };
 
   return (

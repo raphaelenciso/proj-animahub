@@ -1,19 +1,7 @@
+"use client";
+
 import DetailsEpisode from "@/components/DetailsEpisode";
-import jsonConvert from "@/utils/jsonConvert";
-import { META } from "@consumet/extensions";
 import { useState } from "react";
-
-export const getServerSideProps = async ({ query }) => {
-  const { animeId } = query;
-
-  const AnilistConsumet = new META.Anilist();
-
-  const animeInfo = await AnilistConsumet.fetchAnimeInfo(animeId);
-
-  return {
-    props: { animeInfo: jsonConvert(animeInfo), animeId: animeId },
-  };
-};
 
 const AnimeDetails = ({ animeInfo, animeId }) => {
   const [from, setFrom] = useState(1);
@@ -59,7 +47,7 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
           <div className=" text-white h-full flex flex-col justify-center gap-2 w-[90%] max-w-7xl mx-auto  ">
             <p
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main
-          "
+      "
             >
               {title.english ? title.english : title.romaji}
             </p>

@@ -1,25 +1,9 @@
-import { META } from "@consumet/extensions";
-import jsonConvert from "@/utils/jsonConvert";
+"use client";
+
 import Grid from "@/components/Grid";
 import { useState } from "react";
 
-export const getStaticProps = async () => {
-  const AnilistConsumet = new META.Anilist();
-  const trending = await AnilistConsumet.fetchTrendingAnime(1, 20);
-  const popular = await AnilistConsumet.fetchPopularAnime(1, 20);
-
-  return {
-    props: {
-      data: {
-        trending: jsonConvert(trending.results),
-        popular: jsonConvert(popular.results),
-      },
-    },
-    revalidate: 60,
-  };
-};
-
-export default function Home({ data }) {
+export default function Home({ trending, popular }) {
   const [option, setOption] = useState("Trending");
 
   return (
@@ -54,7 +38,8 @@ export default function Home({ data }) {
 
         <hr className="w-[90%] md:w-[100%] mx-auto border-gray-400" />
 
-        <Grid data={option === "Trending" ? data.trending : data.popular} />
+        <Grid data={option === "Trending" ? trending : popular} />
+        {/* <Grid data={trending} /> */}
       </div>
     </div>
   );

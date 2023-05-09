@@ -1,11 +1,11 @@
+"use client";
+
 import Link from "next/link";
 
-const Related = ({ relateds }) => {
-  console.log(relateds);
-
+const Like = ({ likes }) => {
   return (
     <div className="mt-4 flex flex-col gap-2">
-      {relateds.map((item) => {
+      {likes.map((item) => {
         return (
           <Link
             href={{
@@ -34,4 +34,4 @@ const Related = ({ relateds }) => {
     </div>
   );
 };
-export default Related;
+export default Like;

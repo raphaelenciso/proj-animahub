@@ -1,29 +1,10 @@
+"use client";
+
 import React, { useMemo, useState } from "react";
-import jsonConvert from "@/utils/jsonConvert";
-import { META } from "@consumet/extensions";
-import Episodes from "@/components/Episodes";
-import Related from "@/components/Related";
-import Like from "@/components/Like";
-
-import VideoJS from "@/components/Video";
-
-export const getServerSideProps = async ({ query }) => {
-  const { episodeId, animeId } = query;
-
-  const AnilistConsumet = new META.Anilist();
-
-  const streamingLink = await AnilistConsumet.fetchEpisodeSources(episodeId);
-  const animeInfo = await AnilistConsumet.fetchAnimeInfo(animeId);
-
-  return {
-    props: {
-      streamingLink: jsonConvert(streamingLink),
-      animeInfo: jsonConvert(animeInfo),
-      animeId,
-      episodeId,
-    },
-  };
-};
+import Episodes from "@/components/watch/Episodes";
+import Related from "@/components/watch/Related";
+import Like from "@/components/watch/Like";
+import VideoJS from "@/components/watch/Video";
 
 const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
   const { sources } = streamingLink;
@@ -151,4 +132,5 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
     </div>
   );
 };
+
 export default watch;
