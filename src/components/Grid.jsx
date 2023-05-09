@@ -14,7 +14,7 @@ const Grid = ({ data }) => {
                   <img
                     src={item.image}
                     alt={item.id}
-                    className="w-full h-[150px] xs:h-[250px] lg:h-[350px]  md object-cover cursor-pointer"
+                    className="w-full h-[150px] xs:h-[250px] lg:h-[350px]  object-cover cursor-pointer"
                     width={200}
                     loading="lazy"
                   />
