@@ -1,4 +1,5 @@
 import Watch from "@/components/watch/Watch";
+import { currentUser } from "@clerk/nextjs";
 
 export const getStreamingLinks = async (episodeId) => {
   const res = await fetch(
@@ -19,6 +20,7 @@ export const getAnimeInfo = async (animeId) => {
 const page = async ({ params }) => {
   const streamingLink = await getStreamingLinks(params.episodeId);
   const animeInfo = await getAnimeInfo(params.animeId);
+  const user = await currentUser();
 
   return (
     <Watch
@@ -26,6 +28,7 @@ const page = async ({ params }) => {
       animeInfo={animeInfo}
       animeId={params.animeId}
       episodeId={params.episodeId}
+      isLoggedIn={user ? true : false}
     />
   );
 };

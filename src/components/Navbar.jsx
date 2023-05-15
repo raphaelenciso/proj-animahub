@@ -1,9 +1,13 @@
 "use client";
 
+import { SignOutButton } from "@clerk/clerk-react";
+import { SignInButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const { isSignedIn, user } = useUser();
+
   return (
     <nav className="bg-bg-neutral sticky w-full top-0 z-10">
       <div className="w-[90%]  max-w-7xl flex justify-between items-center mx-auto py-2">
@@ -12,7 +16,17 @@ const Navbar = () => {
             AnimaHub
           </div>
         </Link>
-        <SearchBar />
+        <div className="flex gap-2 ">
+          <SearchBar />
+          {isSignedIn ? (
+            <div className="text-white flex items-center ">
+              <p className="my-auto">hello {user.username}, </p>
+              <SignOutButton className="underline text-red-400" />
+            </div>
+          ) : (
+            <SignInButton className="text-white border px-4 rounded-full" />
+          )}
+        </div>
       </div>
     </nav>
   );
