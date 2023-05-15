@@ -33,6 +33,7 @@ export const getPopular = async () => {
 const page = async () => {
   const trending = await getTrending();
   const popular = await getPopular();
+
   const recent = await recentAnime();
 
   return (
