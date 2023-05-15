@@ -11,11 +11,11 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
   const bp = {
     380: {
       slidesPerView: 3.3,
-      spaceBetween: 10,
+      spaceBetween: 7,
     },
     700: {
       slidesPerView: 4.3,
-      spaceBetween: 12,
+      spaceBetween: 10,
     },
     1200: {
       slidesPerView: 5.3,
@@ -32,7 +32,7 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
       <Swiper
         breakpoints={bp}
         slidesPerView={2.3}
-        spaceBetween={10}
+        spaceBetween={5}
         modules={[Navigation]}
         navigation
         onSwiper={(swiper) => console.log(swiper)}
