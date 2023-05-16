@@ -13,20 +13,26 @@ import { useRef } from "react";
 const AnimeCarousel = ({ animelist, title, className, tag }) => {
   const bp = {
     380: {
-      slidesPerView: 3.25,
-      spaceBetween: 5,
+      slidesPerView: 2.8,
+      spaceBetween: 8,
       slidesOffsetBefore: 10,
       slidesOffsetAfter: 10,
     },
-    700: {
-      slidesPerView: 4.25,
-      spaceBetween: 8,
+    750: {
+      slidesPerView: 3.9,
+      spaceBetween: 12,
+      slidesOffsetBefore: 10,
+      slidesOffsetAfter: 10,
+    },
+    1000: {
+      slidesPerView: 5.3,
+      spaceBetween: 12,
       slidesOffsetBefore: 10,
       slidesOffsetAfter: 10,
     },
     1200: {
-      slidesPerView: 5.3,
-      spaceBetween: 8,
+      slidesPerView: 6.3,
+      spaceBetween: 12,
       slidesOffsetBefore: 0,
     },
   };
@@ -36,7 +42,7 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
   return (
     <div className={`${className} relative`}>
       <div>
-        <h1 className="text-white text-xl md:text-2xl pl-[9px] xl:pl-0 font-semibold mb-2">
+        <h1 className="text-white text-xl md:text-2xl pl-[10px] xl:pl-0 font-semibold mb-2">
           {title}
         </h1>
       </div>
@@ -44,7 +50,7 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
       <Swiper
         breakpoints={bp}
         slidesPerView={2.25}
-        spaceBetween={5}
+        spaceBetween={8}
         modules={[Navigation, FreeMode]}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;

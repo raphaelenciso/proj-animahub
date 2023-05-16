@@ -48,7 +48,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
   };
 
   return (
-    <div className="bg-bg-main min-h-screen">
+    <div className="bg-bg-main min-h-screen pt-[60px]">
       <div className="w-full md:w-[90%] max-w-7xl mx-auto flex flex-col xl:flex-row gap-8  md:pt-8">
         <div className="flex-[2] w-full ">
           {useMemo(() => {

@@ -26,10 +26,14 @@ module.exports = {
         "text-secondary": "#b0b3b8",
         "bg-main": "#18191A",
         "bg-neutral": "#242526",
+        "bg-neutral-opacity": "#242526a1",
         "bg-neutral-lighter": "#3a3b3c",
       },
       transitionProperty: {
         width: "width",
+      },
+      aspectRatio: {
+        "3/4": "3 / 4",
       },
     },
     screens: {

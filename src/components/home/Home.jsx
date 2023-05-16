@@ -6,9 +6,11 @@ import AnimeCarousel from "../swiper/AnimeCarousel";
 export default function Home({ trending, popular, recent }) {
   return (
     <div className="bg-bg-main min-h-screen">
-      <div className="mx-auto max-w-7xl w-full">
-        <HomeCarousel animelist={trending} />
+      <div className="mx-auto max-w-[1400px] w-full ">
+        <HomeCarousel animelist={trending.slice(0, 10)} />
+      </div>
 
+      <div className="mx-auto max-w-7xl w-full">
         <AnimeCarousel
           animelist={recent}
           title="Recently Released Anime"

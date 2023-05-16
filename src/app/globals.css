@@ -9,12 +9,15 @@ span.swiper-pagination-bullet {
 }
 
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  border-radius: 20px !important;
+  width: 25px;
   background-color: #0080ff;
   opacity: 1;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
+  font-size: larger;
   color: #0080ff !important;
   fill: #0080ff !important;
   stroke: #0080ff !important;

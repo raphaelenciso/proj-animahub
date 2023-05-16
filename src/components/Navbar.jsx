@@ -1,15 +1,30 @@
 "use client";
 
-import { SignInButton, useUser, UserButton } from "@clerk/nextjs";
+import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { dark } from "@clerk/themes";
 
 const Navbar = () => {
-  const { isSignedIn } = useUser();
+  const { isLoaded, isSignedIn } = useAuth();
 
   const [searchFocused, setSearchFocused] = useState(false);
+  const [atTop, setAtTop] = useState(true);
+  const [yPos, setYPos] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeBackground);
+  }, [yPos]);
+
+  const changeBackground = () => {
+    setYPos(window.scrollY);
+    if (window.scrollY > 150) {
+      setAtTop(false);
+    } else {
+      setAtTop(true);
+    }
+  };
 
   const handleSearchFocus = () => {
     setSearchFocused(true);
@@ -20,8 +35,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-bg-neutral sticky w-full top-0 z-10 ">
-      <div className="w-[93%]  max-w-7xl flex justify-between items-center mx-auto py-2 ">
+    <nav
+      className={`fixed w-full top-0 z-10 transition-all duration-200 ${
+        atTop
+          ? "bg-gradient-to-b from-black via-[#0000009f] to-[#00000011]  "
+          : "bg-bg-neutral"
+      }`}
+    >
+      <div className="w-[93%] flex justify-between items-center mx-auto py-3 ">
         <Link href="/">
           <div
             className={`text-transparent bg-clip-text bg-gradient-to-r font-bold text-2xl md:text-3xl tracking-wide from-primary-main via-pink-400 to-secondary-main`}
@@ -32,7 +53,7 @@ const Navbar = () => {
         <div className="flex gap-2  ">
           <SearchBar onFocus={handleSearchFocus} onBlur={handleSearchBlur} />
 
-          {isSignedIn ? (
+          {isLoaded && isSignedIn ? (
             <UserButton
               appearance={{
                 baseTheme: dark,

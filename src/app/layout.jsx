@@ -7,7 +7,7 @@ export const metadata = {
   description: "Watch anime for free",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <ClerkProvider>
