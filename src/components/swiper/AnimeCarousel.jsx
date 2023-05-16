@@ -1,9 +1,10 @@
 "use client";
 
-import { Navigation } from "swiper";
+import { Navigation, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/free-mode";
 
 import AnimeCard from "../AnimeCard";
 
@@ -40,10 +41,11 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
         breakpoints={bp}
         slidesPerView={2.25}
         spaceBetween={5}
-        modules={[Navigation]}
+        modules={[Navigation, FreeMode]}
         navigation
         slidesOffsetBefore={10}
         slidesOffsetAfter={10}
+        freeMode={true}
       >
         {animelist.map((anime) => (
           <SwiperSlide
