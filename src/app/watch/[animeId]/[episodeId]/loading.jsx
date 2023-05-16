@@ -23,14 +23,14 @@ const loading = () => {
                 {/* episode */}
                 <Skeleton className="w-32 h-4" />
               </h1>
-              <p className="text-white text-3xl mt-2 font-semibold">
+              <div className="text-white text-3xl mt-2 font-semibold">
                 {/* season */}
                 <Skeleton className="w-56 h-8" />
-              </p>
-              <p className="text-gray-400 text-sm mt-2">
+              </div>
+              <div className="text-gray-400 text-sm mt-2">
                 {/* description */}
                 <Skeleton className="w-[15rem] md:w-[45rem] h-4" />
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -47,12 +47,12 @@ const loading = () => {
                 <div key={episode.id} className="lg:mb-4 flex">
                   <Skeleton className="w-48 h-28 " />
                   <div className="flex flex-col  justify-center">
-                    <p className="text-white font-semibold text-sm md:text-base  lg:text-lg px-1 pt-1">
+                    <div className="text-white font-semibold text-sm md:text-base  lg:text-lg px-1 pt-1">
                       <Skeleton className="w-28 h-6" />
-                    </p>
-                    <p className="text-text-secondary px-1 text-sm cursor-text">
+                    </div>
+                    <div className="text-text-secondary px-1 text-sm cursor-text">
                       <Skeleton className="w-56 h-16" />
-                    </p>
+                    </div>
                   </div>
                 </div>
               );

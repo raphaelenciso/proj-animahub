@@ -1,6 +1,6 @@
 "use client";
 
-import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
+import { SignInButton, useAuth, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -53,21 +53,23 @@ const Navbar = () => {
         <div className="flex gap-2  ">
           <SearchBar onFocus={handleSearchFocus} onBlur={handleSearchBlur} />
 
-          {isLoaded && isSignedIn ? (
+          {!!isLoaded && !!isSignedIn ? (
             <UserButton
               appearance={{
                 baseTheme: dark,
                 elements: {
-                  userButtonAvatarBox: "w-10 h-10",
+                  userButtonAvatarBox: `w-10 h-10 ${
+                    searchFocused && "hidden sm:block"
+                  }`,
                 },
               }}
               userProfileMode="navigation"
             />
           ) : (
             <SignInButton
-              className={`text-white border px-4 rounded-full  ${
+              className={`text-white border px-4 rounded-full ${
                 searchFocused && "hidden sm:block"
-              }`}
+              }  `}
             />
           )}
         </div>
