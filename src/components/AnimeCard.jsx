@@ -5,11 +5,11 @@ import Link from "next/link";
 const AnimeCard = ({ anime, tag }) => {
   return (
     <Link href={`/details/${anime.id}`}>
-      <div className="bg-bg-main transition duration-300 hover:scale-[0.98] ">
+      <div className="bg-bg-main relative  ">
         <img
           src={anime.image}
           alt={anime.id}
-          className="w-full h-[160px] xs:h-[250px] lg:h-[350px]  object-cover cursor-pointer rounded-[4px]"
+          className="w-full h-[160px] xs:h-[250px] lg:h-[350px]  object-cover cursor-pointer rounded-[4px] "
           width={200}
           loading="lazy"
         />

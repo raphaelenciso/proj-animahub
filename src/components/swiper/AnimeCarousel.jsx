@@ -10,13 +10,13 @@ import AnimeCard from "../AnimeCard";
 const AnimeCarousel = ({ animelist, title, className, tag }) => {
   const bp = {
     380: {
-      slidesPerView: 3.15,
+      slidesPerView: 3.25,
       spaceBetween: 5,
       slidesOffsetBefore: 10,
       slidesOffsetAfter: 10,
     },
     700: {
-      slidesPerView: 4.23,
+      slidesPerView: 4.25,
       spaceBetween: 8,
       slidesOffsetBefore: 10,
       slidesOffsetAfter: 10,
@@ -38,7 +38,7 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
 
       <Swiper
         breakpoints={bp}
-        slidesPerView={2.15}
+        slidesPerView={2.25}
         spaceBetween={5}
         modules={[Navigation]}
         navigation
@@ -46,7 +46,10 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
         slidesOffsetAfter={10}
       >
         {animelist.map((anime) => (
-          <SwiperSlide key={anime.id}>
+          <SwiperSlide
+            key={anime.id}
+            className="transition duration-300 md:hover:scale-[0.95] "
+          >
             <AnimeCard anime={anime} tag={tag} />
           </SwiperSlide>
         ))}
