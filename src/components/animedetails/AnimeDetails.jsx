@@ -52,12 +52,9 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
             <p className="text-text-secondary">
               {releaseDate} | {duration} | {genres.map((genre) => genre + ", ")}
             </p>
-            <p
-              className="text-sm lg:text-base w-full lg:w-[50%]"
-              dangerouslySetInnerHTML={{
-                __html: description.slice(0, 325) + "...",
-              }}
-            ></p>
+            <div className="text-sm lg:text-base w-full lg:w-[50%]">
+              {description.slice(0, 325) + "..."}
+            </div>
             <p className="text-text-secondary">
               Characters:{" "}
               {characters.slice(0, 3).map((character, index) => {

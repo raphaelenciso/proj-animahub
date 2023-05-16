@@ -39,12 +39,9 @@ const HomeCarousel = ({ animelist }) => {
                       : anime.title.romaji}
                   </p>
 
-                  <p
-                    className="text-sm lg:text-base w-full lg:w-[50%] hidden md:block"
-                    dangerouslySetInnerHTML={{
-                      __html: anime.description.slice(0, 200) + "...",
-                    }}
-                  ></p>
+                  <div className="text-sm lg:text-base w-full lg:w-[50%] hidden md:block">
+                    {anime.description.slice(0, 200) + "..."}
+                  </div>
                 </div>
               </div>
             </div>

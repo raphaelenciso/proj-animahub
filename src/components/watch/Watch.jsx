@@ -6,13 +6,7 @@ import Related from "@/components/watch/Related";
 import Like from "@/components/watch/Like";
 import VideoJS from "@/components/watch/Video";
 
-const watch = ({
-  streamingLink,
-  animeInfo,
-  animeId,
-  episodeId,
-  isLoggedIn,
-}) => {
+const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
   const { sources } = streamingLink;
 
   const [option, setOption] = useState("Episodes");
@@ -72,11 +66,10 @@ const watch = ({
                       ? "bg-white text-bg-main"
                       : "bg-bg-neutral-lighter text-white"
                   } px-4 rounded-2xl mr-1 mt-1 disabled:bg-slate-400 `}
-                  disabled={!isLoggedIn && index > 1}
                   onClick={() => setQualityOption(index)}
                   key={index}
                 >
-                  {!isLoggedIn && index > 1 ? "sign in" : source.quality}
+                  {source.quality}
                 </button>
               ))}
             </div>
