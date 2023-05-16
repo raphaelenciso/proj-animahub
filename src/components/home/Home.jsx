@@ -6,11 +6,9 @@ import AnimeCarousel from "../swiper/AnimeCarousel";
 export default function Home({ trending, popular, recent }) {
   return (
     <div className="bg-bg-main min-h-screen">
-      <div className="mx-auto max-w-7xl w-full md:w-[90%]">
+      <div className="mx-auto max-w-7xl w-full">
         <HomeCarousel animelist={trending} />
-      </div>
 
-      <div className="mx-auto max-w-7xl w-[90%]">
         <AnimeCarousel
           animelist={recent}
           title="Recently Released Anime"
@@ -27,8 +25,6 @@ export default function Home({ trending, popular, recent }) {
           title="Popular Anime"
           className="pb-6"
         />
-
-        {/* <Grid data={option === "Trending" ? trending : popular} /> */}
       </div>
     </div>
   );

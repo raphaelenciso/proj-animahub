@@ -1,11 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, Navigation } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 import Link from "next/link";
 
 const HomeCarousel = ({ animelist }) => {
@@ -14,9 +13,8 @@ const HomeCarousel = ({ animelist }) => {
       pagination={{
         dynamicBullets: true,
       }}
-      modules={[Pagination, Autoplay, Navigation]}
+      modules={[Pagination, Autoplay]}
       className="mySwiper"
-      navigation
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
@@ -25,7 +23,7 @@ const HomeCarousel = ({ animelist }) => {
       {animelist.map((anime) => (
         <SwiperSlide key={anime.id}>
           <Link href={`/details/${anime.id}`}>
-            <div className="w-full h-[250px] md:h-[350px] lg:h-[450px] cursor-pointer relative">
+            <div className="w-full h-[200px] sm:h-[250px] md:h-[350px] lg:h-[450px] cursor-pointer relative">
               <img
                 src={anime.cover}
                 alt={anime.id}
