@@ -2,7 +2,7 @@ import Home from "@/components/home/Home";
 
 export const recentAnime = async () => {
   const res = await fetch(
-    "https://api.consumet.org/meta/anilist/recent-episodes?page=1&perPage=40",
+    "https://api.consumet.org/meta/anilist/recent-episodes?page=1&perPage=20",
     {
       next: { revalidate: 60 },
     }
