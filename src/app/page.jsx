@@ -2,7 +2,7 @@ import Home from "@/components/home/Home";
 
 export const recentAnime = async () => {
   const res = await fetch(
-    "https://api.consumet.org/meta/anilist/recent-episodes?page=1&perPage=20",
+    "https://api.consumet.org/meta/anilist/recent-episodes?page=1&perPage=40",
     {
       next: { revalidate: 60 },
     }
@@ -12,7 +12,7 @@ export const recentAnime = async () => {
 
 export const getTrending = async () => {
   const res = await fetch(
-    "https://api.consumet.org/meta/anilist/trending?page=1&perPage=20",
+    "https://api.consumet.org/meta/anilist/trending?page=1&perPage=40",
     {
       next: { revalidate: 60 },
     }
@@ -22,7 +22,7 @@ export const getTrending = async () => {
 
 export const getPopular = async () => {
   const res = await fetch(
-    "https://api.consumet.org/meta/anilist/popular?page=1&perPage=20",
+    "https://api.consumet.org/meta/anilist/popular?page=1&perPage=40",
     {
       next: { revalidate: 60 },
     }
