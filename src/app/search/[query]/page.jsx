@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { api } from "@/api";
 
 export const getSearchResults = async (query) => {
-  const res = await fetch(`https://api.consumet.org/meta/anilist/${query}`);
+  const res = await fetch(`${api}meta/anilist/${query}`);
 
   return res.json();
 };

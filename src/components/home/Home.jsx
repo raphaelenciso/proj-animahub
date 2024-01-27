@@ -11,12 +11,12 @@ export default function Home({ trending, popular, recent }) {
       </div>
 
       <div className="mx-auto max-w-7xl w-full">
-        <AnimeCarousel
+        {/* <AnimeCarousel
           animelist={recent}
           title="Recently Released Anime"
           className="pt-4 pb-6"
           tag={true}
-        />
+        /> */}
         <AnimeCarousel
           animelist={trending}
           title="Trending Anime"

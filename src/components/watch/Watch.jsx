@@ -10,7 +10,9 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
   const { sources } = streamingLink;
 
   const [option, setOption] = useState("Episodes");
-  const [qualityOption, setQualityOption] = useState(0);
+  const [qualityOption, setQualityOption] = useState(
+    sources[3] ? 3 : sources[2] ? 2 : sources[1] ? 1 : 0
+  );
 
   const playerRef = React.useRef(null);
 

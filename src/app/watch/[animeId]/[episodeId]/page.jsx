@@ -1,17 +1,14 @@
 import Watch from "@/components/watch/Watch";
+import { api } from "@/api";
 
 export const getStreamingLinks = async (episodeId) => {
-  const res = await fetch(
-    `https://api.consumet.org/meta/anilist/watch/${episodeId}`
-  );
+  const res = await fetch(`${api}meta/anilist/watch/${episodeId}`);
 
   return res.json();
 };
 
 export const getAnimeInfo = async (animeId) => {
-  const res = await fetch(
-    `https://api.consumet.org/meta/anilist/info/${animeId}`
-  );
+  const res = await fetch(`${api}meta/anilist/info/${animeId}`);
 
   return res.json();
 };
