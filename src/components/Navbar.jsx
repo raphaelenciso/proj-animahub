@@ -12,6 +12,7 @@ const Navbar = () => {
   const [searchFocused, setSearchFocused] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [yPos, setYPos] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     window.addEventListener("scroll", changeBackground);
@@ -25,6 +26,21 @@ const Navbar = () => {
       setAtTop(true);
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+      console.log(viewportWidth);
+    };
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [viewportWidth]); // Empty dependency array to run the effect only once
 
   const handleSearchFocus = () => {
     setSearchFocused(true);
@@ -45,9 +61,9 @@ const Navbar = () => {
       <div className="w-[93%] flex justify-between items-center mx-auto py-3 ">
         <Link href="/">
           <div
-            className={`text-transparent bg-clip-text bg-gradient-to-r font-bold text-2xl md:text-3xl tracking-wide from-primary-main via-pink-400 to-secondary-main`}
+            className={`text-transparent bg-clip-text bg-gradient-to-r font-bold text-2xl md:text-3xl tracking-wide from-primary-main via-pink-400 to-secondary-main `}
           >
-            AnimaHub
+            {searchFocused && viewportWidth < 500 ? "AH" : "AnimeHub"}
           </div>
         </Link>
         <div className="flex gap-2  ">
@@ -59,7 +75,7 @@ const Navbar = () => {
                 baseTheme: dark,
                 elements: {
                   userButtonAvatarBox: `w-10 h-10 ${
-                    searchFocused && "hidden sm:block"
+                    searchFocused && "hidden sm:flex"
                   }`,
                 },
               }}
@@ -68,7 +84,7 @@ const Navbar = () => {
           ) : (
             <SignInButton
               className={`text-white border px-4 rounded-full ${
-                searchFocused && "hidden sm:block"
+                searchFocused && "hidden sm:flex"
               }  `}
             />
           )}
@@ -91,14 +107,15 @@ const SearchBar = ({ onFocus, onBlur }) => {
       <form onSubmit={handleSubmit}>
         <input
           type="search"
-          className=" peer cursor-pointer relative z-10 h-10 w-12 rounded-3xl  border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-primary-main focus:pl-16 focus:pr-4 text-gray-100 | md:w-full md:pl-16 md:pr-4 motion | transition-all duration-300"
+          className=" peer cursor-pointer relative z-10 h-10 w-12 rounded-3xl  border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-secondary-main focus:pl-16 focus:pr-4 text-gray-100 | md:w-full md:pl-16 md:pr-4 motion | transition-all duration-300"
           placeholder="Search"
           onFocus={onFocus}
           onBlur={onBlur}
         />
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-primary-main peer-focus:stroke-primary-main md:border-gray-500"
+          className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-secondary-main peer-focus:stroke-secondary-main md:border-gray-500"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
