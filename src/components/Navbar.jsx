@@ -30,7 +30,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
-      console.log(viewportWidth);
     };
 
     // Listen for window resize events
