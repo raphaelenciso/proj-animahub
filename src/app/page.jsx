@@ -1,5 +1,5 @@
 import Home from "@/components/home/Home";
-import { api, anilist, gogoanime } from "@/api";
+import { api } from "@/api";
 import { provider } from "@/api";
 
 export const getRecentEpisodes = async () => {
