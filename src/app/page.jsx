@@ -1,7 +1,7 @@
 import Home from "@/components/home/Home";
 import { api, anilist, gogoanime } from "@/api";
 
-const provider = process.env.NEXT_PUBLIC_PROVIDER;
+const provider = "gogoanime";
 
 export const getAnimeBy = async (by) => {
   const res = await fetch(api + `/${by}?page=1&perPage=40`, {
