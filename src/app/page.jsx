@@ -1,7 +1,6 @@
 import Home from "@/components/home/Home";
 import { api, anilist, gogoanime } from "@/api";
-
-const provider = "gogoanime";
+import { provider } from "@/api";
 
 export const getAnimeBy = async (by) => {
   const res = await fetch(api + `/${by}?page=1&perPage=40`, {

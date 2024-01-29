@@ -1,4 +1,4 @@
-const provider = "gogoanime";
+export const provider = "gogoanime";
 
 export const api =
   "https://animahub-api.vercel.app/" +
