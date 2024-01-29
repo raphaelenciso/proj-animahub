@@ -19,7 +19,7 @@ const HomeCarousel = ({ animelist }) => {
         disableOnInteraction: false,
       }}
     >
-      {animelist.map((anime) => (
+      {animelist?.map((anime) => (
         <SwiperSlide key={anime.id}>
           <Link href={`/details/${anime.id}`}>
             <div className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] cursor-pointer relative">

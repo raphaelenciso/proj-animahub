@@ -10,7 +10,7 @@ export const getAnimeBy = async (by) => {
       next: { revalidate: 60 },
     });
   } else {
-    res = await fetch(api + "/" + by, {
+    res = await fetch(api + by, {
       next: { revalidate: 60 },
     });
   }
@@ -24,12 +24,15 @@ const page = async () => {
   if (provider === "anilist") {
     anilist.forEach(async (by, i) => {
       animes[i].by = by.title;
-      animes[i].data = await getAnimeBy(by.endpoint);
+      const { results } = await getAnimeBy(by.endpoint);
+      animes[i].data = results;
     });
   } else if (provider === "gogoanime") {
     gogoanime.forEach(async (by, i) => {
       animes[i].by = by.title;
-      animes[i].data = await getAnimeBy(by.endpoint);
+      const { results } = await getAnimeBy(by.endpoint);
+      animes[i].data = results;
+      console.log(results.length);
     });
   }
 
