@@ -3,9 +3,18 @@ import { api, anilist, gogoanime } from "@/api";
 import { provider } from "@/api";
 
 export const getAnimeBy = async (by) => {
-  const res = await fetch(api + `/${by}?page=1&perPage=40`, {
-    next: { revalidate: 60 },
-  });
+  let res;
+
+  if (provider === "anilist") {
+    res = await fetch(api + "/" + by + "?page=1&perPage=40", {
+      next: { revalidate: 60 },
+    });
+  } else {
+    res = await fetch(api + "/" + by, {
+      next: { revalidate: 60 },
+    });
+  }
+
   return res.json();
 };
 
