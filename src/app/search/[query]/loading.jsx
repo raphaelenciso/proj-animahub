@@ -13,7 +13,7 @@ const loading = () => {
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
             return (
               <div key={index}>
-                <Skeleton className="w-full h-[150px] xs:h-[250px] lg:h-[350px]" />
+                <Skeleton className="w-full  h-[150px] xs:h-[250px] lg:h-[350px]" />
               </div>
             );
           })}
