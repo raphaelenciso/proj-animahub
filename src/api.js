@@ -1,4 +1,5 @@
 export const provider = process.env.NEXT_PUBLIC_PROVIDER || "gogoanime";
+
 export const api =
   provider === "gogoanime"
     ? "https://animahub-api.vercel.app/anime/gogoanime/"
