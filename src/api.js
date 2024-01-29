@@ -1,6 +1,8 @@
 export const api =
   "https://animahub-api.vercel.app/" +
-  (process.env.provider === "gogoanime" ? "anime/gogoanime" : "meta/anilist");
+  (process.env.NEXT_PUBLIC_PROVIDER === "gogoanime"
+    ? "anime/gogoanime"
+    : "meta/anilist");
 
 export const anilist = [
   {
