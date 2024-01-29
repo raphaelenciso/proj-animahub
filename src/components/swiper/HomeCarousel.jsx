@@ -8,8 +8,6 @@ import "swiper/css/pagination";
 import Link from "next/link";
 
 const HomeCarousel = ({ animelist }) => {
-  console.log(animelist);
-
   return (
     <Swiper
       modules={[Pagination, Autoplay, Navigation]}

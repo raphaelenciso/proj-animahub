@@ -6,7 +6,7 @@ export const getAnimeBy = async (by) => {
   let res;
 
   if (provider === "anilist") {
-    res = await fetch(api + "/" + by + "?page=1&perPage=40", {
+    res = await fetch(api + by + "?page=1&perPage=40", {
       next: { revalidate: 60 },
     });
   } else {

@@ -1,8 +1,8 @@
 export const provider = "gogoanime";
 
-export const api =
-  "https://animahub-api.vercel.app/" +
-  (provider === "gogoanime" ? "anime/gogoanime" : "meta/anilist");
+export const api = "https://animahub-api.vercel.app/anime/gogoanime/";
+
+export const apiAnilist = "https://animahub-api.vercel.app/meta/anilist/";
 
 export const anilist = [
   {
