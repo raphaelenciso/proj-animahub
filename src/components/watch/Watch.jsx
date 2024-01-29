@@ -16,7 +16,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
 
   const playerRef = React.useRef(null);
 
-  const { title } = animeInfo;
+  const { title, image } = animeInfo;
   const videoJsOptions = {
     autoplay: false,
     controls: true,
@@ -80,7 +80,11 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
                 Episode {episodeId.split("episode-")[1]}
               </h1>
               <p className="text-white text-3xl mt-2 font-semibold">
-                {title.english ? title.english : title.romaji}
+                {title.english
+                  ? title.english
+                  : title.romaji
+                  ? title.romaji
+                  : title}
               </p>
               <p className="text-gray-400 text-sm mt-2">
                 {
@@ -125,10 +129,18 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
             </div>
           </div>
           {option === "Episodes" && (
-            <Episodes episodes={animeInfo.episodes} animeId={animeId} />
+            <Episodes
+              image={image}
+              episodes={animeInfo.episodes}
+              animeId={animeId}
+            />
           )}
-          {option === "Related" && <Related relateds={animeInfo.relations} />}
-          {option === "Like" && <Like likes={animeInfo.recommendations} />}
+          {animeInfo.relations && option === "Related" && (
+            <Related relateds={animeInfo.relations} />
+          )}
+          {animeInfo.recommendations && option === "Like" && (
+            <Like likes={animeInfo.recommendations} />
+          )}
         </div>
       </div>
     </div>

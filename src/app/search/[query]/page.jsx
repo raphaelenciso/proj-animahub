@@ -2,7 +2,7 @@ import Link from "next/link";
 import { api } from "@/api";
 
 export const getSearchResults = async (query) => {
-  const res = await fetch(`${api}meta/anilist/${query}`);
+  const res = await fetch(`${api}/${query}`);
 
   return res.json();
 };
@@ -16,7 +16,7 @@ const page = async ({ params }) => {
         <h1 className="text-white text-3xl font-semibold mb-4  px-6 pt-8 ">
           Results for{" "}
           <span className="underline text-slate-400 font-normal">
-            {" " + params.query}
+            {" " + params.query.replace("%20", " ")}
           </span>
         </h1>
         <hr className="w-[90%] md:w-[100%] mx-auto border-gray-400" />
@@ -36,7 +36,9 @@ const page = async ({ params }) => {
                         loading="lazy"
                       />
                       <h1 className="mx-auto text-center text-gray-300 text-sm lg:text-base group-hover:underline cursor-pointer">
-                        {item.title.userPreferred.slice(0, 35)}
+                        {item.title.userPreferred
+                          ? item.title.userPreferred.slice(0, 35)
+                          : item.title.slice(0, 35)}
                       </h1>
                     </div>
                   </div>

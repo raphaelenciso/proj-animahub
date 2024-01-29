@@ -8,7 +8,9 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
   const [to, setTo] = useState(50);
 
   const {
+    type,
     cover,
+    image,
     title,
     season,
     releaseDate,
@@ -37,7 +39,7 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
     <div className="bg-bg-main min-h-screen">
       <div className="md:relative">
         <img
-          src={cover}
+          src={cover ? cover : image}
           alt={title}
           className="h-[200px] md:h-[400px] w-full object-cover object-center "
           loading="lazy"
@@ -46,25 +48,33 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
         <div className="lg:absolute lg:top-0 ||||| lg:bg-gradient-to-r lg:from-[#000000ff] lg:via-[#000000cf] lg:to-[#0000005f] w-full h-full my-4 lg:my-0">
           <div className=" text-white h-full flex flex-col justify-center gap-2 w-[90%] max-w-7xl mx-auto  ">
             <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main">
-              {title.english ? title.english : title.romaji}
+              {title.english
+                ? title.english
+                : title.romaji
+                ? title.romaji
+                : title}
             </p>
-            <p className=" text-xl md:text-2xl  ">{season}</p>
+            <p className=" text-xl md:text-2xl  ">
+              {season ? season : type && type}
+            </p>
             <p className="text-text-secondary">
               {releaseDate} | {duration} | {genres.map((genre) => genre + ", ")}
             </p>
             <div className="text-sm lg:text-base w-full lg:w-[50%]">
               {description?.slice(0, 325) + "..."}
             </div>
-            <p className="text-text-secondary">
-              Characters:{" "}
-              {characters.slice(0, 3).map((character, index) => {
-                if (index === 2) {
-                  return character.name.first;
-                } else {
-                  return character.name.first + ", ";
-                }
-              })}
-            </p>
+            {characters && (
+              <p className="text-text-secondary">
+                Characters:{" "}
+                {characters.slice(0, 3).map((character, index) => {
+                  if (index === 2) {
+                    return character.name.first;
+                  } else {
+                    return character.name.first + ", ";
+                  }
+                })}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -99,6 +109,7 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
               <DetailsEpisode
                 episode={episode}
                 animeId={animeId}
+                image={image}
                 key={episode.id}
               />
             );

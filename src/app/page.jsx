@@ -1,42 +1,30 @@
 import Home from "@/components/home/Home";
-import { api } from "@/api";
+import { api, anilist, gogoanime } from "@/api";
 
-// export const recentAnime = async () => {
-//   const res = await fetch(
-//     "https://animahub-api.vercel.app/meta/anilist/recent-episodes?page=1&perPage=20",
-//     {
-//       next: { revalidate: 60 },
-//     }
-//   );
-//   return res.json();
-// };
+const provider = process.env.provider;
 
-export const getTrending = async () => {
-  const res = await fetch(api + "meta/anilist/trending?page=1&perPage=40", {
-    next: { revalidate: 60 },
-  });
-  return res.json();
-};
-
-export const getPopular = async () => {
-  const res = await fetch(api + "meta/anilist/popular?page=1&perPage=40", {
+export const getAnimeBy = async (by) => {
+  const res = await fetch(api + `/${by}?page=1&perPage=40`, {
     next: { revalidate: 60 },
   });
   return res.json();
 };
 
 const page = async () => {
-  const trending = await getTrending();
-  const popular = await getPopular();
+  let animes = provider === "anilist" ? [{}, {}] : [{}, {}, {}, {}];
 
-  // const recent = await recentAnime();
+  if (provider === "anilist") {
+    anilist.forEach(async (by, i) => {
+      animes[i].by = by.title;
+      animes[i].data = await getAnimeBy(by.endpoint);
+    });
+  } else if (provider === "gogoanime") {
+    gogoanime.forEach(async (by, i) => {
+      animes[i].by = by.title;
+      animes[i].data = await getAnimeBy(by.endpoint);
+    });
+  }
 
-  return (
-    <Home
-      trending={trending.results}
-      popular={popular.results}
-      // recent={recent.results}
-    />
-  );
+  return <Home animes={animes} />;
 };
 export default page;

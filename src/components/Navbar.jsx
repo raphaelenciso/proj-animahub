@@ -12,7 +12,7 @@ const Navbar = () => {
   const [searchFocused, setSearchFocused] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [yPos, setYPos] = useState(0);
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(window?.innerWidth);
 
   useEffect(() => {
     window.addEventListener("scroll", changeBackground);

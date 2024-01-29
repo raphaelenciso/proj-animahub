@@ -8,6 +8,8 @@ import "swiper/css/pagination";
 import Link from "next/link";
 
 const HomeCarousel = ({ animelist }) => {
+  console.log(animelist);
+
   return (
     <Swiper
       modules={[Pagination, Autoplay, Navigation]}
@@ -24,7 +26,7 @@ const HomeCarousel = ({ animelist }) => {
           <Link href={`/details/${anime.id}`}>
             <div className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] cursor-pointer relative">
               <img
-                src={anime.cover}
+                src={anime.cover ? anime.cover : anime.image}
                 alt={anime.id}
                 className="w-full h-full object-cover rounded-md "
                 loading="lazy"
@@ -36,7 +38,9 @@ const HomeCarousel = ({ animelist }) => {
                     <p className="text-xl md:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main">
                       {anime.title.english
                         ? anime.title.english
-                        : anime.title.romaji}
+                          ? anime.title.english
+                          : anime.title.romaji
+                        : anime.title}
                     </p>
                   </div>
                 </div>
