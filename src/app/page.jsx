@@ -2,19 +2,38 @@ import Home from "@/components/home/Home";
 import { api, anilist, gogoanime } from "@/api";
 import { provider } from "@/api";
 
-export const getAnimeBy = async (by) => {
-  let res;
+export const getRecentEpisodes = async () => {
+  const res = await fetch(api + "recent-episodes", {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+};
 
-  if (provider === "anilist") {
-    res = await fetch(api + by + "?page=1&perPage=40", {
-      next: { revalidate: 60 },
-    });
-  } else {
-    res = await fetch(api + by, {
-      next: { revalidate: 60 },
-    });
-  }
+export const getTopAiring = async () => {
+  const res = await fetch(api + "top-airing", {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+};
 
+export const getPopular = async () => {
+  const res = await fetch(api + "popular", {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+};
+
+export const getMovies = async () => {
+  const res = await fetch(api + "movies", {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+};
+
+export const getTrending = async () => {
+  const res = await fetch(api + "trending", {
+    next: { revalidate: 60 },
+  });
   return res.json();
 };
 
@@ -22,18 +41,23 @@ const page = async () => {
   let animes = provider === "anilist" ? [{}, {}] : [{}, {}, {}, {}];
 
   if (provider === "anilist") {
-    anilist.forEach(async (by, i) => {
-      animes[i].by = by.title;
-      const { results } = await getAnimeBy(by.endpoint);
-      animes[i].data = results;
-    });
+    animes[0].by = "Trending Anime";
+    animes[0].data = await getTrending();
+
+    animes[1].by = "Popular Anime";
+    animes[1].data = await getPopular();
   } else if (provider === "gogoanime") {
-    gogoanime.forEach(async (by, i) => {
-      animes[i].by = by.title;
-      const { results } = await getAnimeBy(by.endpoint);
-      animes[i].data = results;
-      console.log(results.length);
-    });
+    animes[0].by = "Recently Release Episodes";
+    animes[0].data = await getRecentEpisodes();
+
+    animes[1].by = "Top Airing Anime";
+    animes[1].data = await getTopAiring();
+
+    animes[2].by = "Popular Anime";
+    animes[2].data = await getPopular();
+
+    animes[3].by = "Anime Movies";
+    animes[3].data = await getMovies();
   }
 
   return <Home animes={animes} />;
