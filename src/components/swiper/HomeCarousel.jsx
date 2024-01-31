@@ -6,6 +6,7 @@ import { Pagination, Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import Link from "next/link";
+import generateTitle from "@/utils/generateTitle";
 
 const HomeCarousel = ({ animelist }) => {
   return (
@@ -34,11 +35,7 @@ const HomeCarousel = ({ animelist }) => {
                 <div className=" text-white h-full flex items-end">
                   <div className="bg-gradient-to-t w-full from-black via-[#0000009f] to-[#00000005] px-4 md:px-10 py-8">
                     <p className="text-xl md:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main">
-                      {anime.title.english
-                        ? anime.title.english
-                          ? anime.title.english
-                          : anime.title.romaji
-                        : anime.title}
+                      {generateTitle(anime.title)}
                     </p>
                   </div>
                 </div>

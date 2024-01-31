@@ -5,6 +5,7 @@ import Episodes from "@/components/watch/Episodes";
 import Related from "@/components/watch/Related";
 import Like from "@/components/watch/Like";
 import VideoJS from "@/components/watch/Video";
+import generateTitle from "@/utils/generateTitle";
 
 const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
   const { sources } = streamingLink;
@@ -80,11 +81,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
                 Episode {episodeId.split("episode-")[1]}
               </h1>
               <p className="text-white text-3xl mt-2 font-semibold">
-                {title.english
-                  ? title.english
-                  : title.romaji
-                  ? title.romaji
-                  : title}
+                {generateTitle(title)}
               </p>
               <p className="text-gray-400 text-sm mt-2">
                 {

@@ -17,9 +17,12 @@ export const getTopAiring = async () => {
 };
 
 export const getPopular = async () => {
-  const res = await fetch(api + "popular", {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    api + "popular" + (provider && "?page=1&perPage=40"),
+    {
+      next: { revalidate: 60 },
+    }
+  );
   return res.json();
 };
 
@@ -31,9 +34,12 @@ export const getMovies = async () => {
 };
 
 export const getTrending = async () => {
-  const res = await fetch(api + "trending", {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    api + "trending" + (provider && "?page=1&perPage=40"),
+    {
+      next: { revalidate: 60 },
+    }
+  );
   return res.json();
 };
 

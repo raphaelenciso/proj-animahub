@@ -2,7 +2,7 @@ import AnimeDetails from "@/components/animedetails/AnimeDetails";
 import { api } from "@/api";
 
 const getAnimeInfo = async ({ animeId }) => {
-  const res = await fetch(`${api}/info/${animeId}`);
+  const res = await fetch(`${api}info/${animeId}`);
   return res.json();
 };
 

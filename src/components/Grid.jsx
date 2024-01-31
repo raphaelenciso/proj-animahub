@@ -1,5 +1,6 @@
 "use client";
 
+import generateTitle from "@/utils/generateTitle";
 import Link from "next/link";
 
 const Grid = ({ data }) => {
@@ -19,7 +20,7 @@ const Grid = ({ data }) => {
                     loading="lazy"
                   />
                   <h1 className="mx-auto text-center text-gray-300 text-sm lg:text-base group-hover:underline cursor-pointer">
-                    {item.title.userPreferred.slice(0, 35)}
+                    {generateTitle(item.title)}
                   </h1>
                 </div>
               </div>

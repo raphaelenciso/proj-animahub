@@ -1,6 +1,7 @@
 "use client";
 
 import DetailsEpisode from "@/components/DetailsEpisode";
+import generateTitle from "@/utils/generateTitle";
 import { useState } from "react";
 
 const AnimeDetails = ({ animeInfo, animeId }) => {
@@ -48,11 +49,7 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
         <div className="lg:absolute lg:top-0 ||||| lg:bg-gradient-to-r lg:from-[#000000ff] lg:via-[#000000cf] lg:to-[#0000005f] w-full h-full my-4 lg:my-0">
           <div className=" text-white h-full flex flex-col justify-center gap-2 w-[90%] max-w-7xl mx-auto  ">
             <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary-main via-pink-400 to-secondary-main">
-              {title.english
-                ? title.english
-                : title.romaji
-                ? title.romaji
-                : title}
+              {generateTitle(title)}
             </p>
             <p className=" text-xl md:text-2xl  ">
               {season ? season : type && type}
@@ -85,6 +82,7 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
           Episodes
         </h1>
 
+        {console.log(episodes)}
         {episodes.length > 50 && (
           <select
             className="inline-block bg-bg-neutral border border-gray-100 text-white rounded-md"

@@ -4,23 +4,24 @@
 
 /* target all bullets */
 span.swiper-pagination-bullet {
-  background-color: #5d5b8d;
+  background-color: #ffa0005f;
   opacity: 0.75;
 }
 
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   border-radius: 20px !important;
-  width: 25px;
-  background-color: #0080ff;
+  width: 20px;
+  background-color: #ffa000;
+  background-image: linear-gradient(to right, #0080ff, #f472b6, #ffa000);
   opacity: 1;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
   font-size: larger;
-  color: #0080ff !important;
-  fill: #0080ff !important;
-  stroke: #0080ff !important;
+  color: #ffa000 !important;
+  fill: #ffa000 !important;
+  stroke: #ffa000 !important;
 }
 
 @media only screen and (max-width: 768px) {

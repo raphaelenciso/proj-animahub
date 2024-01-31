@@ -7,12 +7,13 @@ export default function Home({ animes }) {
   return (
     <div className="bg-bg-main min-h-screen">
       <div className="mx-auto max-w-[1400px] w-full ">
-        <HomeCarousel animelist={animes[1].data.results} />
+        <HomeCarousel animelist={animes[1].data.results.slice(0, 10)} />
       </div>
 
       <div className="mx-auto max-w-7xl w-full">
         {animes?.map((anime) => (
           <AnimeCarousel
+            key={anime.by}
             animelist={anime.data.results}
             title={anime.by}
             className="pb-6"

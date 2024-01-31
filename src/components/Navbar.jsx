@@ -12,7 +12,7 @@ const Navbar = () => {
   const [searchFocused, setSearchFocused] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [yPos, setYPos] = useState(0);
-  // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     window.addEventListener("scroll", changeBackground);
@@ -27,19 +27,19 @@ const Navbar = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setViewportWidth(window.innerWidth);
-  //   };
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
 
-  //   // Listen for window resize events
-  //   window.addEventListener("resize", handleResize);
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
 
-  //   // Clean up the event listener
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, [viewportWidth]);
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [viewportWidth]);
 
   const handleSearchFocus = () => {
     setSearchFocused(true);
@@ -62,8 +62,8 @@ const Navbar = () => {
           <div
             className={`text-transparent bg-clip-text bg-gradient-to-r font-bold text-2xl md:text-3xl tracking-wide from-primary-main via-pink-400 to-secondary-main `}
           >
-            AnimeHub
-            {/* {searchFocused && viewportWidth < 500 ? "AH" : "AnimeHub"} */}
+            {/* AnimeHub */}
+            {searchFocused && viewportWidth < 500 ? "AH" : "AnimeHub"}
           </div>
         </Link>
         <div className="flex gap-2  ">

@@ -1,5 +1,6 @@
 "use client";
 
+import generateTitle from "@/utils/generateTitle";
 import Link from "next/link";
 
 const AnimeCard = ({ anime, tag }) => {
@@ -19,9 +20,7 @@ const AnimeCard = ({ anime, tag }) => {
           </span>
         )}
         <h1 className="mx-auto text-center text-gray-300 text-xs md:text-sm lg:text-base group-hover:underline cursor-pointer">
-          {anime.title.userPreferred
-            ? anime.title.userPreferred.slice(0, 35)
-            : anime.title.slice(0, 35)}
+          {generateTitle(anime.title)}
         </h1>
       </div>
     </Link>

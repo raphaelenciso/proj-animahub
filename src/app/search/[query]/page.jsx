@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { api } from "@/api";
+import generateTitle from "@/utils/generateTitle";
 
 export const getSearchResults = async (query) => {
-  const res = await fetch(`${api}/${query}`);
+  const res = await fetch(`${api + query}`);
 
   return res.json();
 };
@@ -36,9 +37,7 @@ const page = async ({ params }) => {
                         loading="lazy"
                       />
                       <h1 className="mx-auto text-center text-gray-300 text-sm lg:text-base group-hover:underline cursor-pointer">
-                        {item.title.userPreferred
-                          ? item.title.userPreferred.slice(0, 35)
-                          : item.title.slice(0, 35)}
+                        {generateTitle(item.title)}
                       </h1>
                     </div>
                   </div>

@@ -2,13 +2,13 @@ import Watch from "@/components/watch/Watch";
 import { api } from "@/api";
 
 export const getStreamingLinks = async (episodeId) => {
-  const res = await fetch(`${api}/watch/${episodeId}`);
+  const res = await fetch(`${api}watch/${episodeId}`);
 
   return res.json();
 };
 
 export const getAnimeInfo = async (animeId) => {
-  const res = await fetch(`${api}/info/${animeId}`);
+  const res = await fetch(`${api}info/${animeId}`);
 
   return res.json();
 };
