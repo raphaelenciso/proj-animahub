@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* target all bullets */
+
 span.swiper-pagination-bullet {
   background-color: #ffa0005f;
   opacity: 0.75;

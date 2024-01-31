@@ -11,7 +11,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <ClerkProvider>
-        <body suppressHydrationWarning={true}>
+        <body suppressHydrationWarning={true} className="bg-bg-main">
           <Navbar />
           {children}
         </body>
