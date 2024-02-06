@@ -4,78 +4,20 @@ import React, { useMemo, useState } from "react";
 import Episodes from "@/components/watch/Episodes";
 import Related from "@/components/watch/Related";
 import Like from "@/components/watch/Like";
-import VideoJS from "@/components/watch/Video";
 import generateTitle from "@/utils/generateTitle";
+import Player from "./Player";
 
 const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
-  const { sources } = streamingLink;
-
   const [option, setOption] = useState("Episodes");
-  const [qualityOption, setQualityOption] = useState(
-    sources[3] ? 3 : sources[2] ? 2 : sources[1] ? 1 : 0
-  );
-
-  const playerRef = React.useRef(null);
-
+  const { sources } = streamingLink;
   const { title, image } = animeInfo;
-  const videoJsOptions = {
-    autoplay: false,
-    controls: true,
-    fluid: true,
-    playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
-    sources: [
-      {
-        src: sources[qualityOption]?.url,
-        type: "application/x-mpegURL",
-      },
-    ],
-    plugins: {
-      seekButtons: {
-        forward: 8,
-        back: 8,
-      },
-    },
-  };
-
-  const handlePlayerReady = (player) => {
-    playerRef.current = player;
-
-    // You can handle player events here, for example:
-    player.on("waiting", () => {
-      videojs.log("player is waiting");
-    });
-
-    player.on("dispose", () => {
-      videojs.log("player will dispose");
-    });
-  };
 
   return (
     <div className="bg-bg-main min-h-screen pt-[60px]">
       <div className="w-full md:w-[90%] max-w-7xl mx-auto flex flex-col xl:flex-row gap-8  md:pt-8">
         <div className="flex-[2] w-full ">
-          {useMemo(() => {
-            return (
-              <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-            );
-          }, [qualityOption, episodeId])}
+          <Player sources={sources} />
           <div>
-            <div className="px-4 md:px-0">
-              <h1 className="text-white font-semibold text-xl">Quality:</h1>
-              {sources.map((source, index) => (
-                <button
-                  className={`${
-                    qualityOption === index
-                      ? "bg-white text-bg-main"
-                      : "bg-bg-neutral-lighter text-white"
-                  } px-4 rounded-2xl mr-1 mt-1 disabled:bg-slate-400 `}
-                  onClick={() => setQualityOption(index)}
-                  key={index}
-                >
-                  {source.quality}
-                </button>
-              ))}
-            </div>
             <div className="px-4 md:px-0">
               <h1 className="text-text-secondary text-lg mt-2">
                 Episode {episodeId.split("episode-")[1]}
