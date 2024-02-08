@@ -1,9 +1,17 @@
 "use client";
 
+import { outfit } from "@/utils/font";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Episodes = ({ episodes, animeId, image }) => {
+  const pathname = usePathname();
+  const urlSplit = pathname.split("-");
+  const episodeUrl = urlSplit[urlSplit.length - 1];
+  const lorem =
+    " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, eligendi repudiandae repellat maiores aperiam eos, corporis itaque animi quam voluptatem praesentium distinctio, nam ratione labore doloribus minima odio porro. Sit.";
+
   const [from, setFrom] = useState(1);
   const [to, setTo] = useState(50);
 
@@ -42,24 +50,45 @@ const Episodes = ({ episodes, animeId, image }) => {
       )}
       {episodes.slice(from - 1, to).map((episode) => {
         return (
-          <Link href={`/watch/${animeId}/${episode.id}`} key={episode.id}>
-            <div key={episode.id} className="lg:mb-4 flex">
+          <Link
+            href={`/watch/${animeId}/${episode.id}`}
+            key={episode.id}
+            className={`flex gap-1 bg-bg-neutral rounded-lg hover:scale-105 transition-all duration-300 overflow-auto ${
+              episodeUrl == episode.number ? "border border-primary-main" : ""
+            }`}
+          >
+            <div
+              className={`relative flex-1 ${
+                episodeUrl == episode.number ? "opacity-50" : ""
+              }`}
+            >
               <img
                 src={episode.image ? episode.image : image}
                 alt={episode.title ? episode.title : episode.id}
-                className="w-44 md:w-48 object-cover object-center"
+                className="h-full  object-cover object-center   aspect-video"
                 loading="lazy"
               />
-              <div className="flex flex-col  justify-center">
-                <p className="text-white font-semibold text-sm md:text-base  lg:text-lg px-1 pt-1">
-                  {episode.number}.{" "}
-                  {episode.title ? episode.title : "Episode " + episode.number}
-                </p>
-                <p className="text-text-secondary px-1 text-sm cursor-text">
-                  {episode.description &&
-                    episode.description.slice(0, 70) + "..."}
-                </p>
-              </div>
+              <h2 className="absolute bottom-1 left-2 text-white font-semibold">
+                Episode {episode.number}
+              </h2>
+            </div>
+
+            <div
+              className={`flex flex-col flex-[1.3] justify-center ${
+                episodeUrl == episode.number ? "opacity-50" : ""
+              }`}
+            >
+              <p
+                className={`text-white font-medium text-sm md:text-base px-1 pt-1`}
+              >
+                {episode.title ? episode.title : "No Title"}
+              </p>
+              <p className="text-text-secondary px-1 text-xs italic ">
+                {episode.description
+                  ? episode.description.slice(0, 90)
+                  : lorem.slice(0, 90)}
+                ...
+              </p>
             </div>
           </Link>
         );

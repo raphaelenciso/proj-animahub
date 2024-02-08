@@ -3,7 +3,7 @@ import Skeleton from "@/components/Skeleton";
 const loading = () => {
   return (
     <div className="bg-bg-main">
-      <div className="w-full md:w-[90%] max-w-7xl mx-auto flex flex-col xl:flex-row gap-8 pt-[60px]">
+      <div className="w-full md:w-[93%] mx-auto flex flex-col xl:flex-row gap-8 pt-[60px]">
         <div className="flex-[2] w-full ">
           {/* videojs */}
           <Skeleton className="full h-[18rem] md:h-[30rem]" />

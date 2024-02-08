@@ -18,11 +18,9 @@ const AnimeCarousel = ({ animelist, title, className, tag }) => {
 
   return (
     <div className={`${className} relative`}>
-      <div>
-        <h1 className="text-white text-xl md:text-2xl pl-[10px] xl:pl-0 font-semibold mb-2">
-          {title}
-        </h1>
-      </div>
+      <h1 className="text-white text-xl md:text-2xl pl-[10px] xl:pl-0 font-semibold mb-2">
+        {title}
+      </h1>
 
       <Swiper
         breakpoints={bp}

@@ -13,7 +13,7 @@ const Like = ({ likes }) => {
               <img
                 src={item.image}
                 alt={generateTitle(item.title)}
-                className="w-44 object-cover object-center"
+                className="w-44 object-cover object-center rounded-lg aspect-[9/12]"
                 loading="lazy"
               />
 

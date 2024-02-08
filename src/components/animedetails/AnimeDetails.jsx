@@ -42,7 +42,7 @@ const AnimeDetails = ({ animeInfo, animeId }) => {
         <img
           src={cover ? cover : image}
           alt={title}
-          className="h-[200px] md:h-[400px] w-full object-cover object-center "
+          className="h-[250px] md:h-[600px] w-full object-cover object-center "
           loading="lazy"
         />
 

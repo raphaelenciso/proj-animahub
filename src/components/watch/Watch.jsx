@@ -6,6 +6,7 @@ import Related from "@/components/watch/Related";
 import Like from "@/components/watch/Like";
 import generateTitle from "@/utils/generateTitle";
 import Player from "./Player";
+import { outfit } from "@/utils/font";
 
 const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
   const [option, setOption] = useState("Episodes");
@@ -14,17 +15,19 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
 
   return (
     <div className="bg-bg-main min-h-screen pt-[60px]">
-      <div className="w-full md:w-[90%] max-w-7xl mx-auto flex flex-col xl:flex-row gap-8  md:pt-8">
-        <div className="flex-[2] w-full ">
+      <div className="w-full md:w-[93%]  mx-auto flex flex-col xl:flex-row gap-8  md:pt-8">
+        <div className="flex-[3] w-full ">
           <Player sources={sources} />
           <div>
             <div className="px-4 md:px-0">
-              <h1 className="text-text-secondary text-lg mt-2">
+              <p className="text-text-secondary text-lg  mt-2 md:mt-6">
                 Episode {episodeId.split("episode-")[1]}
-              </h1>
-              <p className="text-white text-3xl mt-2 font-semibold">
-                {generateTitle(title)}
               </p>
+              <h1
+                className={`text-white text-3xl  font-semibold ${outfit.className}`}
+              >
+                {generateTitle(title)}
+              </h1>
               <p className="text-gray-400 text-sm mt-2">
                 {
                   animeInfo.episodes[episodeId.split("episode-")[1] - 1]
@@ -38,7 +41,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
           <div className="flex gap-2 text-white h-10 border-t border-gray-400 ">
             <div
               onClick={() => setOption("Episodes")}
-              className={`bg-gradient-to-r from-primary-main via-pink-400 to-secondary-main  flex justify-center items-center  ${
+              className={`bg-primary-main flex justify-center items-center  ${
                 option === "Episodes" ? "pt-1" : "mt-1"
               } `}
             >
@@ -48,7 +51,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
             </div>
             <div
               onClick={() => setOption("Related")}
-              className={`bg-gradient-to-r from-primary-main via-pink-400 to-secondary-main  flex justify-center items-center  ${
+              className={`bg-primary-main  flex justify-center items-center  ${
                 option === "Related" ? "pt-1" : "mt-1"
               } `}
             >
@@ -58,7 +61,7 @@ const watch = ({ streamingLink, animeInfo, animeId, episodeId }) => {
             </div>
             <div
               onClick={() => setOption("Likes")}
-              className={`bg-gradient-to-r from-primary-main via-pink-400 to-secondary-main  flex justify-center items-center ${
+              className={`bg-primary-main flex justify-center items-center ${
                 option === "Likes" ? "pt-1" : "mt-1"
               } `}
             >

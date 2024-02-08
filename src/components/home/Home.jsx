@@ -6,7 +6,7 @@ import AnimeCarousel from "../swiper/AnimeCarousel";
 export default function Home({ animes }) {
   return (
     <div className="bg-bg-main min-h-screen">
-      <div className="mx-auto max-w-[1400px] w-full ">
+      <div className="mx-auto max-w-[1500px] w-full ">
         <HomeCarousel animelist={animes[1].data.results.slice(0, 3)} />
       </div>
 

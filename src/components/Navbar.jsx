@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed w-full top-0 z-10 transition-all duration-200 ${
+        className={`fixed w-full top-0 z-[70] transition-all duration-200 ${
           atTop
             ? "bg-gradient-to-b from-black via-[#0000009f] to-[#00000011]  "
             : "bg-bg-neutral"
@@ -61,9 +61,9 @@ const Navbar = () => {
               Animehub
             </div>
           </Link>
-          <div className="flex gap-4  ">
+          <div className="flex items-center gap-2 md:gap-4  ">
             <IoIosSearch
-              className="text-gray-300 text-4xl font-bold cursor-pointer"
+              className="text-gray-300 text-3xl md:text-4xl font-bold cursor-pointer"
               onClick={() => setIsSearchOpen(true)}
             />
 
@@ -79,7 +79,7 @@ const Navbar = () => {
               />
             ) : (
               <SignInButton
-                className={`text-white border px-4 rounded-full flex  `}
+                className={`text-black bg-secondary-main font-bold px-4 rounded-md flex items-center  md:text-lg`}
               />
             )}
           </div>

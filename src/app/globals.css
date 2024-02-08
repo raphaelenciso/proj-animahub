@@ -21,7 +21,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 .swiper-button-next,
 .swiper-button-prev {
-  font-size: larger;
+  font-size: smaller;
+  /* padding: 100px; */
   color: #ffa000 !important;
   fill: #ffa000 !important;
   stroke: #ffa000 !important;
@@ -32,4 +33,10 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   .swiper-button-prev {
     display: none !important;
   }
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }

@@ -10,6 +10,7 @@ import Artplayer from "artplayer";
 
 import { useEffect, useRef } from "react";
 import { backward, forward } from "../svg/player";
+import { back } from "../svg/back";
 
 const Player = ({ sources: sourcesProp }) => {
   const artRef = useRef();
@@ -119,7 +120,53 @@ const Player = ({ sources: sourcesProp }) => {
 
     art.layers["backward"].ondblclick = backward10;
 
-    // console.log(art.utils.lock);
+    art.on("focus", (event) => {
+      if (art.fullscreen && !art.layers.back) {
+        art.layers.add({
+          name: "back",
+          html: back,
+          tooltip: "Back",
+          style: {
+            position: "absolute",
+            top: "20px",
+            left: "0px",
+          },
+          click: function () {
+            art.fullscreen = false;
+          },
+          mounted: function () {
+            setTimeout(() => {
+              art.layers.remove("back");
+            }, 3100);
+          },
+        });
+      }
+    });
+
+    art.on("hover", (event) => {
+      if (art.fullscreen && !art.layers.back) {
+        art.layers.add({
+          name: "back",
+          html: back,
+          tooltip: "Back",
+          style: {
+            position: "absolute",
+            top: "20px",
+            left: "0px",
+          },
+          click: function () {
+            art.fullscreen = false;
+          },
+          mounted: function () {
+            setTimeout(() => {
+              art.layers.remove("back");
+            }, 3100);
+          },
+        });
+      }
+    });
+
+    console.log(art);
   }, []);
 
   return <div className="w-full aspect-video" ref={artRef}></div>;
