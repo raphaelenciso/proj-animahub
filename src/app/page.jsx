@@ -3,9 +3,12 @@ import { api } from "@/api";
 import { provider } from "@/api";
 
 export const getRecentEpisodes = async () => {
-  const res = await fetch(api + "recent-episodes", {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    api + "recent-episodes" + (provider === "anilist" && "?page=1&perPage=40"),
+    {
+      next: { revalidate: 60 },
+    }
+  );
   return res.json();
 };
 
@@ -18,7 +21,7 @@ export const getTopAiring = async () => {
 
 export const getPopular = async () => {
   const res = await fetch(
-    api + "popular" + (provider && "?page=1&perPage=40"),
+    api + "popular" + (provider === "anilist" && "?page=1&perPage=40"),
     {
       next: { revalidate: 60 },
     }
@@ -35,7 +38,7 @@ export const getMovies = async () => {
 
 export const getTrending = async () => {
   const res = await fetch(
-    api + "trending" + (provider && "?page=1&perPage=40"),
+    api + "trending" + (provider === "anilist" && "?page=1&perPage=40"),
     {
       next: { revalidate: 60 },
     }
@@ -44,14 +47,17 @@ export const getTrending = async () => {
 };
 
 const page = async () => {
-  let animes = provider === "anilist" ? [{}, {}] : [{}, {}, {}, {}];
+  let animes = provider === "anilist" ? [{}, {}, {}] : [{}, {}, {}, {}];
 
   if (provider === "anilist") {
-    animes[0].by = "Trending Anime";
-    animes[0].data = await getTrending();
+    animes[0].by = "Recently Release Episodes";
+    animes[0].data = await getRecentEpisodes();
 
-    animes[1].by = "Popular Anime";
-    animes[1].data = await getPopular();
+    animes[1].by = "Trending Anime";
+    animes[1].data = await getTrending();
+
+    animes[2].by = "Popular Anime";
+    animes[2].data = await getPopular();
   } else if (provider === "gogoanime") {
     animes[0].by = "Recently Release Episodes";
     animes[0].data = await getRecentEpisodes();
