@@ -7,13 +7,15 @@
 span.swiper-pagination-bullet {
   background-color: #ffa0005f;
   opacity: 0.75;
+  transition: all 1s;
+  width: 25px;
+  border-radius: 20px !important;
 }
 
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  border-radius: 20px !important;
-  width: 20px;
+  width: 40px;
   background-color: #ffa000;
-  background-image: linear-gradient(to right, #0080ff, #f472b6, #ffa000);
+  /* background-image: linear-gradient(to right, #0080ff, #f472b6, #ffa000); */
   opacity: 1;
 }
 
