@@ -4,7 +4,9 @@ import { provider } from "@/api";
 
 export const getRecentEpisodes = async () => {
   const res = await fetch(
-    api + "recent-episodes" + (provider === "anilist" && "?page=1&perPage=40"),
+    api +
+      "recent-episodes" +
+      (provider === "anilist" ? "?page=1&perPage=40" : ""),
     {
       next: { revalidate: 60 },
     }
@@ -21,7 +23,7 @@ export const getTopAiring = async () => {
 
 export const getPopular = async () => {
   const res = await fetch(
-    api + "popular" + (provider === "anilist" && "?page=1&perPage=40"),
+    api + "popular" + (provider === "anilist" ? "?page=1&perPage=40" : ""),
     {
       next: { revalidate: 60 },
     }

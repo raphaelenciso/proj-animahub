@@ -55,15 +55,18 @@ const HomeCarousel = ({ animelist }) => {
                       {generateTitle(anime.title)}
                     </h1>
                     <p className="hidden md:inline max-w-[650px] font-light">
-                      {anime.description.slice(0, 200)}
-                      {anime.description.length > 200 ? "..." : ""}
+                      {anime.description?.slice(0, 200)}
+                      {anime.description?.length > 200 ? "..." : ""}
                     </p>
                     <div className="flex gap-2">
                       <Link
                         href={`/watch/${anime.id}/${
-                          anime.title.romaji
-                            .toLowerCase()
-                            .replaceAll(" ", "-") + "-episode-1"
+                          (anime.title.romaji
+                            ? anime.title.romaji
+                                .toLowerCase()
+                                .replaceAll(" ", "-")
+                            : anime.title.toLowerCase().replaceAll(" ", "-")) +
+                          "-episode-1"
                         }`}
                         className="bg-secondary-main text-bg-main py-2 px-4   text-center text-sm md:text-base md:text-start flex items-center gap-2 hover:opacity-80 rounded-full"
                       >
