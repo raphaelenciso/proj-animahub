@@ -1,6 +1,6 @@
 # AnimeHub
 
-![AnimeHub Logo]([[https://example.com/animehub-logo.png](https://raphaelenciso.com/_next/static/media/animahub_thumbnail.4f8cc0e3.png)](https://raphaelenciso.com/_next/static/media/animahub_thumbnail.4f8cc0e3.png))
+![AnimeHub Logo](https://raphaelenciso.com/_next/static/media/animahub_thumbnail.4f8cc0e3.png)
 
 AnimeHub is an online streaming platform dedicated to providing free access to a diverse library of anime content for users worldwide. This platform is designed with anime enthusiasts in mind, offering a seamless experience for those who prefer to watch their favorite shows online.
 
