@@ -30,8 +30,4 @@ For any inquiries or assistance, please contact our support team at [support@rap
 
 AnimeHub is an open-source project, and we welcome contributions from the community. If you're interested in contributing to the development of our platform, send an email.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
