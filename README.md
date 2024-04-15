@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AnimeHub
+
+![AnimeHub Logo]([https://example.com/animehub-logo.png](https://raphaelenciso.com/_next/static/media/animahub_thumbnail.4f8cc0e3.png))
+
+AnimeHub is an online streaming platform dedicated to providing free access to a diverse library of anime content for users worldwide. This platform is designed with anime enthusiasts in mind, offering a seamless experience for those who prefer to watch their favorite shows online.
+
+## Features
+
+- **Vast Anime Library**: Explore a vast collection of anime series and movies, ranging from classics to the latest releases.
+  
+- **Free Access**: Enjoy unlimited streaming of anime content without any subscription fees or hidden charges.
+  
+- **User-Friendly Interface**: Navigate through the platform effortlessly with a clean and intuitive user interface.
+  
+- **Search and Discover**: Easily find your favorite anime titles or discover new ones through advanced search and recommendation features.
+  
+- **High-Quality Streaming**: Stream anime content in high definition without compromising on video or audio quality.
+  
+- **Customizable Experience**: Personalize your viewing experience with features like subtitles, language options, and playback settings.
 
 ## Getting Started
 
-First, run the development server:
+To start streaming anime on AnimeHub, simply visit our website at [animehub.raphaelenciso.com]([www.animehub.com](https://animahub.raphaelenciso.com/)) and create a free account. Once logged in, you can start exploring our vast library of anime content and enjoy unlimited streaming from any device with an internet connection.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Support
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+For any inquiries or assistance, please contact our support team at [support@raphaelenciso.com](mailto:support@raphaelenciso.com). We are here to help you with any questions or concerns regarding the platform or your viewing experience.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+AnimeHub is an open-source project, and we welcome contributions from the community. If you're interested in contributing to the development of our platform, send an email.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
