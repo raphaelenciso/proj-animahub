@@ -20,7 +20,7 @@ AnimeHub is an online streaming platform dedicated to providing free access to a
 
 ## Getting Started
 
-To start streaming anime on AnimeHub, simply visit our website at [animehub.raphaelenciso.com]([www.animehub.com](https://animahub.raphaelenciso.com/)) and create a free account. Once logged in, you can start exploring our vast library of anime content and enjoy unlimited streaming from any device with an internet connection.
+To start streaming anime on AnimeHub, simply visit our website at [animehub.raphaelenciso.com](https://animahub.raphaelenciso.com/) and create a free account. Once logged in, you can start exploring our vast library of anime content and enjoy unlimited streaming from any device with an internet connection.
 
 ## Support
 
